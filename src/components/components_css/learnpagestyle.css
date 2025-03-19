@@ -1,0 +1,173 @@
+/* -------------------- VISION -------------------- */
+.vision {
+    text-align: center;
+    min-height: 90vh;
+    margin-top: 200px;
+}
+
+.vision-content {
+    max-width: 700px;
+    margin: auto;
+}
+
+.tag {
+    background-color: white;
+    border: 1.5px solid black;
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: default;
+}
+
+.vision-title {
+    font-size: 65px;
+    font-weight: bold;
+    color: #373025;
+    margin: 15px 0;
+}
+
+.vision-description {
+    font-size: 16px;
+    color: #373025;
+    margin-bottom: 0px;
+}
+
+.vision-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.vision-image img {
+    width: 90%;
+}
+
+.vision-text {
+    flex: 1;
+    max-width: 250px;
+}
+
+.vision-icon {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.vision-subtitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+}
+
+.vision-subtext {
+    font-size: 14px;
+    color: #555;
+}
+
+.vision-text.bottom {
+    margin-top: 30px;
+}
+
+/* -------------------- MISSION -------------------- */
+.mission {
+    padding: 50px 10%;
+    min-height: 70vh;
+    background-color: white;
+}
+
+.mission-content {
+    max-width: 1600px;
+    margin: auto;
+}
+
+.mission-description {
+    font-size: 65px;
+    color: #373025;
+    line-height: 1.4;
+    margin: 20px 0;
+}
+
+.mission-description {
+    font-weight: 600;
+}
+
+.highlight {
+    font-weight: 600;
+    color: #D4A937;
+}
+
+.mission-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+    color: #555;
+}
+
+.mission-subtext {
+    text-align: left;
+    max-width: 30%;
+}
+
+.mission-brand {
+    text-align: right;
+    font-weight: 300;
+}
+
+/* -------------------- RATINGS -------------------- */
+.rate-content {
+    min-height: auto;
+    background-color: white;
+}
+
+.rate-button {
+    background-color: white;
+    height: 40px;
+    padding: 0px 20px;
+    color: #373025;
+    border: 1.5px solid #373025;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.rate-button:hover {
+    background-color: #373025;
+    color: white;
+}
+
+.rate-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 200px;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.rate-info {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.rate-title {
+    font-weight: bold;
+    font-size: 40px;
+    color: #373025;
+}
+
+.rate-description {
+    font-size: 16px;
+    color: #373025;
+    max-width: 70%;
+    text-align: right;
+    margin-top: -20px;
+}

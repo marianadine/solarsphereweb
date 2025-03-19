@@ -1,0 +1,665 @@
+/* -------------------- HOME -------------------- */
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    min-height: 100vh;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1600px;
+    margin-top: 150px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.home-content {
+    width: 80%;
+    color: #373025;
+    text-align: left;
+    margin-right: 100px;
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.company-name {
+    font-size: 20px;
+    font-weight: 300;
+    color: #373025;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.headline {
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: -15px;
+    color: #373025;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.subtext {
+    font-size: 20px;
+    color: #555;
+    margin-top: -30px;
+    width: 500px;
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+.input-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid #c2c1c1;
+    width: 450px;
+    background-color: #fff;
+    animation: fadeInUp 1.3s ease-in-out;
+}
+
+.input-form input {
+    flex: 1;
+    border: none;
+    background: none;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-form input::placeholder {
+    color: #c0c0c0;
+}
+
+.input-form .input-icon {
+    color: #D9D9D9;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.input-form button {
+    background-color: #e4b356;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    animation: fadeInUp 1.4s ease-in-out;
+}
+
+.input-form button:hover {
+    background-color: #d1a048;
+}
+
+.home-image {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.home-image img {
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 10px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.about-cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 75px;
+    padding: 20px;
+    width: 1570px;
+    background: #fff;
+    border-radius: 10px;
+    border: #e8e8e8 1px solid;
+    height: 110px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.about-card {
+    display: flex;
+    align-items: center;
+    width: 25%;
+    padding: 15px;
+    border-radius: 10px;
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+.about-icon {
+    font-size: 26px;
+    color: white;
+    background: #373025;
+    padding: 18px;
+    border-radius: 13px;
+    margin-right: 20px;
+    animation: bounceIn 1.5s ease-in-out;
+}
+
+.about-text h3 {
+    font-size: 19px;
+    font-weight: bold;
+    color: #222;
+    animation: fadeInUp 1.3s ease-in-out;
+}
+
+.about-text p {
+    font-size: 17px;
+    color: #555;
+    margin-top: -15px;
+    animation: fadeInUp 1.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* -------------------- MOTTO SECTION -------------------- */
+.motto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.motto-slideshow {
+    position: relative;
+    width: 1570px;
+    height: 620px;
+    background-color: #373025;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.motto-name {
+    position: absolute;
+    top: 10px;
+    font-size: 18px;
+    color: white;
+    z-index: 2;
+}
+
+.motto-slideshow img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.motto-slideshow img.active {
+    opacity: 1;
+}
+
+.motto-content {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    width: 1540px;
+    margin-top: 20px;
+}
+
+.motto-text {
+    font-size: 22px;
+    color: #373025;
+    width: 40%;
+}
+
+.motto-header {
+    font-size: 35px;
+    font-weight: 600;
+    width: 40%;
+    color: #e4b356;
+    margin-top: 10px;
+    text-align: right;
+}
+
+/* -------------------- DOWNLOAD APP SECTION -------------------- */
+.downloadapp {
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 60px 10%;
+    background-color: white;
+    position: relative;
+    margin-top: 200px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.downloadapp-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 800px;
+    text-align: left;
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.downloadapp-header {
+    font-size: 40px;
+    font-weight: 600;
+    color: #373025;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.downloadapp-text {
+    font-size: 18px;
+    color: #373025;
+    max-width: 350px;
+    margin-top: -200px;
+    margin-left: 1000px;
+    margin-bottom: 150px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.downloadapp-button {
+    background-color: white;
+    padding: 6px 15px;
+    color: #373025;
+    border: 2px solid #373025;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 10px;
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+.downloadapp-button:hover {
+    background-color: #373025;
+    color: white;
+}
+
+.downloadapp-line {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 30%;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.downloadapp-phone {
+    width: 500px;
+    position: relative;
+    z-index: 1; 
+    margin-top: -50px;
+    transform: translateX(100%);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* -------------------- READ ARTICLES SECTION -------------------- */
+.readarticles {
+    padding: 60px;
+    background-color: white;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.readarticles-content {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 100px 40px;
+    animation: slideInLeft 0.8s ease-in-out;
+}
+
+.readarticles-header {
+    font-size: 40px;
+    font-weight: 600;
+    color: #373025;
+    margin-bottom: -10px;
+}
+
+.readarticles-text {
+    font-size: 20px;
+    color: #555;
+}
+
+.readarticles-cards {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* Individual Article Card */
+.readarticles-card {
+    position: relative;
+    width: 500px;
+    height: 600px;
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+    animation: fadeInUp 0.8s ease-in-out;
+}
+
+.readarticles-card:hover {
+    transform: scale(1.05);
+}
+
+.readarticles-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease-in-out;
+}
+
+.readarticles-card:hover img {
+    filter: grayscale(0%);
+}
+
+/* Article Card Overlay */
+.readarticles-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80%;
+    padding: 20px 40px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    color: white;
+    text-align: left;
+}
+
+.readarticles-card-title {
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: -10px;
+    width: 80%;
+}
+
+.readarticles-card-text {
+    font-size: 18px;
+    opacity: 0.9;
+    line-height: 1.4; 
+}
+
+/* Read Time and Arrow Icon */
+.readarticles-card-info {
+    position: absolute;
+    top: 20px; 
+    left: 20px;
+    font-size: 16px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 6px 12px;
+    border-radius: 20px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.readarticles-arrow {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.readarticles-arrow:hover {
+    background: #ddd;
+    transform: scale(1.1);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* -------------------- FAQS SECTION -------------------- */
+.faqs {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #fff;
+    padding: 40px 60px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 100%;
+    margin: 50px auto;
+    gap: 40px; 
+}
+
+.faqs-content {
+    flex: 1;
+    max-width: 450px;
+}
+
+.faqs-header {
+    font-size: 36px;
+    font-weight: 600;
+    color: #373025;
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+.faqs-text {
+    font-size: 16px;
+    color: #373025;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.contact-button {
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #373025;
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.contact-button:hover {
+    background: #373025;
+    color: #fff;
+}
+
+.faqs-list {
+    flex: 1;
+    max-width: 600px;
+    width: 100%;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+    cursor: pointer;
+    width: 100%; 
+    transition: background-color 0.3s ease-in-out;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    font-size: 16px;
+    color: #373025;
+    margin-top: 10px;
+    margin-bottom: -5px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.faq-item.open .faq-answer {
+    max-height: 200px;
+    opacity: 1;
+    padding-top: 10px;
+}
+
+.icon {
+    font-size: 20px;
+    font-weight: 500;
+    transition: transform 0.3s ease-in-out;
+}
+
+.faq-item.open .icon {
+    transform: rotate(180deg);
+}

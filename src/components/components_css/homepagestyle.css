@@ -640,7 +640,7 @@
 .faq-answer {
     font-size: 16px;
     color: #373025;
-    margin-top: 10px;
+    margin-top: -5px;
     margin-bottom: -5px;
     max-height: 0;
     overflow: hidden;

@@ -6,12 +6,18 @@ import NavBar from './NavBar';
 import Footer from './Footer';
 import ServicesPage from './ServicesPage';
 import ContactPage from './ContactPage';
+import ScrollToTop from './ScrollToTop';
+import ScrollToTopButton from './ScrollToTopButton';  // ✅ Import the button
+import HeatmapCalculator from './HeatmapCalculator';
+import SmartSolarPlanner from './SmartSolarPlanner';
 
 const WebsiteController = () => {
   return (
     <Router>
+      <ScrollToTop />  {/* ✅ Ensures page always starts at top on route change */}
       <NavBar />
       <MainRoutes />
+      <ScrollToTopButton />  {/* ✅ Ensures scroll-to-top button appears */}
     </Router>
   );
 };
@@ -26,6 +32,8 @@ const MainRoutes = () => {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/learn" element={<LearnPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/heatmap" element={<HeatmapCalculator />} />
+        <Route path="/planner" element={<SmartSolarPlanner />} />
       </Routes>
       {location.pathname !== "/contact" && <Footer />}
     </>

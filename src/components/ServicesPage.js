@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import home from '../imgs/3dhome.png';
 import './components_css/servicespagestyle.css';
 
 const ServicesPage = () => {
+    const navigate = useNavigate();
 
     const [openIndex, setOpenIndex] = useState(null);
     const heatmapfaqs = [
@@ -54,7 +56,7 @@ const ServicesPage = () => {
                                 </div>
                             ))}
                         </div>
-                        <button className="get-started-button">Get Started</button>
+                        <button className="get-started-button" onClick={() => navigate('/heatmap')}>Get Started</button>
                     </div>
                     <div className="image-placeholder"></div>
                 </div>
@@ -79,7 +81,8 @@ const ServicesPage = () => {
                                 </div>
                             ))}
                         </div>
-                        <button className="get-started-button">Get Started</button>
+                        <button className="get-started-button" onClick={() => navigate('/planner')}
+                        >Get Started</button>
                     </div>
                 </div>
             </div>

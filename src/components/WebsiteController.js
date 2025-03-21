@@ -7,7 +7,7 @@ import Footer from './Footer';
 import ServicesPage from './ServicesPage';
 import ContactPage from './ContactPage';
 import ScrollToTop from './ScrollToTop';
-import ScrollToTopButton from './ScrollToTopButton';  // ✅ Import the button
+import ScrollToTopButton from './ScrollToTopButton';
 import HeatmapCalculator from './HeatmapCalculator';
 import SmartSolarPlanner from './SmartSolarPlanner';
 

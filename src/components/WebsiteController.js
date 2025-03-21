@@ -14,10 +14,10 @@ import SmartSolarPlanner from './SmartSolarPlanner';
 const WebsiteController = () => {
   return (
     <Router>
-      <ScrollToTop />  {/* ✅ Ensures page always starts at top on route change */}
+      <ScrollToTop /> 
       <NavBar />
       <MainRoutes />
-      <ScrollToTopButton />  {/* ✅ Ensures scroll-to-top button appears */}
+      <ScrollToTopButton />
     </Router>
   );
 };

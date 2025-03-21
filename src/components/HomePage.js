@@ -22,12 +22,12 @@ const HomePage = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-        }, 3000); // Change slide every 3 seconds
+        }, 3000);
 
         return () => clearInterval(interval);
     }, []);
 
-    const [openIndex, setOpenIndex] = useState(0);
+    const [openIndex, setOpenIndex] = useState(null);
     const faqs = [
         { question: 'How do solar panels work?', answer: 'Solar panels convert sunlight into electricity using photovoltaic cells to power your home or business.' },
         { question: 'How much can I save with solar panels?', answer: 'Savings depend on your energy consumption and location, but solar panels can significantly reduce your monthly electricity bills.' },

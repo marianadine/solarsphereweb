@@ -1,0 +1,160 @@
+.services {
+    background-color: #fff;
+    padding: 50px 0;
+    margin: 100px;
+    margin-top: 150px;
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.services-header {
+    margin: 50px;
+    padding: 70px;
+    background: linear-gradient(135deg, #373025, #948977);
+    border-radius: 30px;
+}
+
+.services-text {
+    color: #fff;
+    width: 40%;
+}
+
+.brand{
+    font-size: 16px;
+}
+
+.services-title{
+    font-size: 50px;
+    font-weight: 600;
+    margin-top: -20px;
+}
+
+.services-description {
+    font-size: 18px;
+    margin-top: -40px;
+}
+
+.button {
+    background-color: transparent;
+    color: #fff;
+    padding: 10px 20px;
+    border: #fff 0.5px solid;
+    border-radius: 10px;
+    margin-top: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    background-color: #fff;
+    color: #373025;
+}
+
+.services-header {
+    position: relative; 
+    margin: 50px;
+    padding: 70px;
+    background-color: #373025;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: visible;
+}
+
+.services-image {
+    width: 1000px; 
+    position: absolute;
+    top: -130px;
+    right: -150px;
+    z-index: 10;
+}
+
+.services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 150px;
+}
+
+.service-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+.service-text {
+    flex: 1;
+    max-width: 50%;
+    color: #373025;
+    margin-left: 80px;
+}
+
+.service-text h2 {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.service-text p {
+    font-size: 16px;
+    color: #373025;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.get-started-button {
+    background-color: transparent;
+    border: 1px solid #373025;
+    color: #373025;
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.get-started-button:hover {
+    background-color: #373025;
+    color: #fff;
+}
+
+.image-placeholder {
+    flex: 1;
+    max-width: 40%;
+    height: 450px;
+    background-color: #373025;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.faqs-list {
+    margin-top: 20px;
+}
+
+.faq-item {
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-answer {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+}

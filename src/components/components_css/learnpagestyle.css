@@ -323,3 +323,34 @@
     text-align: right;
     margin-top: -20px;
 }
+
+.reviews {
+    display: flex;
+    gap: 20px;
+    overflow-x: hidden;
+    white-space: nowrap;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+    max-width: 90%;
+    margin: auto;
+    height: 550px;
+    cursor: grab;
+}
+
+.reviews:active {
+    cursor: grabbing;
+}
+
+.reviews::-webkit-scrollbar {
+    display: none;
+}
+
+.review-box {
+    min-width: 350px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+

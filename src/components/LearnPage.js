@@ -36,6 +36,50 @@ const LearnPage = () => {
         ));
     };
 
+    const reviewRef = useRef(null);
+    let isDragging = false;
+    let startX, scrollLeft;
+
+    useEffect(() => {
+        const reviews = reviewRef.current;
+        if (!reviews) return;
+
+        const scrollSpeed = 1;
+        let requestId;
+
+        const scrollReviews = () => {
+            if (reviews.scrollLeft >= reviews.scrollWidth / 2) {
+                reviews.scrollLeft = 0;
+            }
+            reviews.scrollLeft += scrollSpeed;
+            requestId = requestAnimationFrame(scrollReviews);
+        };
+
+        requestId = requestAnimationFrame(scrollReviews);
+
+        return () => cancelAnimationFrame(requestId);
+    }, []);
+
+
+    const startDrag = (e) => {
+        isDragging = true;
+        startX = e.pageX - reviewRef.current.offsetLeft;
+        scrollLeft = reviewRef.current.scrollLeft;
+    };
+
+    const dragging = (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - reviewRef.current.offsetLeft;
+        const walk = (x - startX) * 2; // Adjust drag speed
+        reviewRef.current.scrollLeft = scrollLeft - walk;
+    };
+
+    const stopDrag = () => {
+        isDragging = false;
+    };
+
+
     return (
         <div>
             <section className="vision">
@@ -113,8 +157,21 @@ const LearnPage = () => {
                         </p>
                     </div>
                 </div>
-                <div className="reviews"></div>
+                <div className="reviews" ref={reviewRef}>
+                    {[...Array(2)].flatMap(() => ([
+                        <div className="review-box">Review 1</div>,
+                        <div className="review-box">Review 2</div>,
+                        <div className="review-box">Review 3</div>,
+                        <div className="review-box">Review 4</div>,
+                        <div className="review-box">Review 5</div>,
+                        <div className="review-box">Review 6</div>,
+                        <div className="review-box">Review 7</div>,
+                        <div className="review-box">Review 8</div>
+                    ]))}
+                </div>
+
             </section>
+
         </div>
     );
 };

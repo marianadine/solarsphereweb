@@ -56,7 +56,6 @@
 
 .planner-form input:focus,
 .planner-dropdown select:focus {
-    border-color: #d1a640;
     background: #fff8e1;
 }
 
@@ -96,7 +95,7 @@
     top: 100%;
     background: white;
     color: #373025;
-    font-size: 12px;
+    font-size: 15px;
     padding: 6px 12px;
     border-radius: 5px;
     width: 450px;
@@ -244,4 +243,16 @@
         opacity: 1;
         transform: translateY(0) scale(1);
     }
+}
+
+.planner-form input:-webkit-autofill,
+.planner-dropdown select:-webkit-autofill {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+.planner-form input:focus,
+.planner-dropdown select:focus {
+    background-color: white !important;
 }

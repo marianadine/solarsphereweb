@@ -41,7 +41,13 @@ const SmartSolarPlanner = () => {
                 </div>
                 <p className='note'>Installation fees may vary based on your roof type and specific site conditions.</p>
 
-                <p className="label">Electricity Bill</p>
+                <div className="label-container">
+                    <p className="label">Electricity Bill</p>
+                    <div className="info-icon">
+                        <FontAwesomeIcon icon={faInfoCircle} />
+                        <span className="tooltip">To determine your monthly electricity bill from your Meralco bill, check the Total kWh Used and the Total Amount Due. Divide the amount due by the kWh used to get the cost per kWh. Reviewing past bills can help track usage and find ways to save.</span>
+                    </div>
+                </div>
                 <div className="planner-form">
                     <input
                         type="text"

@@ -10,6 +10,8 @@ import ScrollToTop from './ScrollToTop';
 import ScrollToTopButton from './ScrollToTopButton';
 import HeatmapCalculator from './HeatmapCalculator';
 import SmartSolarPlanner from './SmartSolarPlanner';
+import GeneratedPlan from './GeneratedPlan';
+
 
 const WebsiteController = () => {
   return (
@@ -34,6 +36,7 @@ const MainRoutes = () => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/heatmap" element={<HeatmapCalculator />} />
         <Route path="/planner" element={<SmartSolarPlanner />} />
+        <Route path="/summary" element={<GeneratedPlan />} />
       </Routes>
       {location.pathname !== "/contact" && <Footer />}
     </>

@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import "./components_css/heatmappagestyle.css";
+import { useNavigate } from "react-router-dom";
 
 const HeatmapCalculator = () => {
     const [location, setLocation] = useState("");
+    const navigate = useNavigate();
 
     return (
         <section className="heatmap-calculator">
@@ -42,7 +44,7 @@ const HeatmapCalculator = () => {
                         Note: These results rely on API data and may vary based on real-time conditions.
                     </p>
 
-                    <button className="generate-button">Generate a Solar Plan</button>
+                    <button className="generate-button" onClick={() => navigate('/planner')}>Generate a Solar Plan</button>
                     <p className="generate-text">Interested? Generate a Solar Plan with us for free!</p>
                 </div>
 

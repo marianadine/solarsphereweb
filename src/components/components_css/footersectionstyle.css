@@ -12,7 +12,8 @@
 }
 
 .footer-left {
-    max-width: 280px;
+    max-width: 370px !important;
+    margin-right: -100px;
 }
 
 .footer-logo {
@@ -23,13 +24,13 @@
 .footer-company {
     font-size: 13px;
     font-weight: 400;
-    color: #373025;
+    color: #373025 !important;
 }
 
 .footer-tagline {
-    font-size: 18px;
+    font-size: 18px ;
     font-weight: 600;
-    color: #373025;
+    color: #373025 !important;
     margin-top: -5px;
 }
 
@@ -37,7 +38,7 @@
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #222;
+    color: #373025 !important;
 }
 
 .footer-section p, .footer-link {

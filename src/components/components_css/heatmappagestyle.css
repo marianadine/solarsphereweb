@@ -43,7 +43,6 @@
     transition: color 0.3s ease-in-out;
 }
 
-/* Input Form */
 .input-form {
     display: flex;
     align-items: center;
@@ -188,7 +187,6 @@
     transition: color 0.3s ease-in-out;
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
     .heatmap-calculator {
         padding: 20px;

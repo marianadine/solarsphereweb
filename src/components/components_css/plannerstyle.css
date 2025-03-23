@@ -1,0 +1,247 @@
+.planner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 100%;
+    margin: 150px 50px;
+    padding: 20px;
+}
+
+.planner_container {
+    width: 80%;
+    margin-right: 100px;
+    animation: slideIn 0.6s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.plannercompany-name {
+    font-size: 16px;
+    font-weight: 300;
+    color: #373025;
+    margin-bottom: -30px;
+}
+
+.plannertitle {
+    font-size: 36px;
+    font-weight: 600;
+    color: #373025;
+    margin-bottom: -10px;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #373025;
+    border: #373025 solid 1px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.planner-form input,
+.planner-dropdown select {
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.planner-form input:focus,
+.planner-dropdown select:focus {
+    border-color: #d1a640;
+    background: #fff8e1;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #373025;
+    margin-bottom: 5px;
+}
+
+.label-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+.info-icon {
+    color: #8a8a8a;
+    font-size: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    position: relative;
+    z-index: 10000;
+}
+
+.info-icon:hover {
+    color: #d1a640;
+    transform: scale(1.1);
+}
+
+.tooltip {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    color: #373025;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    width: 450px;
+    white-space: normal;
+    word-wrap: break-word;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+    transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.info-icon:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.note {
+    font-size: 12px;
+    color: #8a8a8a;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.planner-form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background: white;
+    width: 97%;
+    padding: 3px 12px;
+    gap: 10px;
+}
+
+.planner-icon {
+    color: #8a8a8a;
+}
+
+.planner-form input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.planner-dropdown {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background: white;
+    width: 97%;
+    padding: 12px;
+}
+
+.planner-dropdown select {
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    background: transparent;
+}
+
+.toggle-button {
+    display: flex;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    width: 100%;
+    margin-top: 5px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.toggle-button::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: #e0e0e0;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggle-button[data-selected="No"]::before {
+    transform: translateX(100%);
+}
+
+.toggle-button button {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+.toggle-button button.active {
+    color: #373025;
+    font-weight: 600;
+}
+
+.planner-button {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    background: #d1a640;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.planner-button:hover {
+    background: #b38a30;
+    transform: scale(1.02);
+}
+
+.imagecontainer {
+    width: 60%;
+    height: 600px;
+    background-color: #d1d1d1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-top: 20px;
+    animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+.imagecontainer p {
+    color: #555;
+    font-size: 16px;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

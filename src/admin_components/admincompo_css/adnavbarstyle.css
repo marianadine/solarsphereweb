@@ -1,0 +1,108 @@
+.admin-navbar {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 25px;
+    margin: 30px;
+}
+
+.admin-logo img {
+    height: 40px;
+}
+
+.admin-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 50px;
+}
+
+.admin-links li {
+    font-size: 16px;
+}
+
+.admin-links li a {
+    text-decoration: none;
+    color: #373025;
+    font-weight: 500;
+}
+
+.admin-links li a:hover {
+    color: #D3AB3F;
+}
+
+.admin-profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.profile-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.admin-name {
+    font-size: 16px;
+    color: #373025;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-icon {
+    font-size: 12px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.admin-profile:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.logout-button {
+    width: 100%;
+    border: none;
+    background: none;
+    padding: 8px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    color: #333;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.logout-button:hover {
+    background: #f0f0f0;
+    border-radius: 5px;
+}

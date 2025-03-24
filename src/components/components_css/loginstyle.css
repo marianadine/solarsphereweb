@@ -140,3 +140,13 @@
     color: #D3AB3F;
 }
 
+.error-message {
+    color: red;
+    font-size: 14px;
+    text-align: right;
+    margin-top: -5px;
+    margin-bottom: -5px;
+    font-weight: 500;
+}
+
+

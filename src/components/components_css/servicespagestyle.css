@@ -136,25 +136,33 @@
     margin-left: 50px;
 }
 
-.faqs-list {
+.faqs-list2 {
     margin-top: 20px;
+    width: 80%;
 }
 
-.faq-item {
+.faq-item2 {
     cursor: pointer;
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
 }
 
-.faq-question {
+.faq-item2:last-child {
+    border-bottom: none;
+}
+
+.faq-question2 {
     font-weight: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
-.faq-answer {
+.faq-answer2 {
     font-size: 14px;
-    color: #777;
+    color: #373025;
     margin-top: 5px;
+    text-align: justify;
+    width: 100px;
 }

@@ -438,7 +438,6 @@
     flex-wrap: wrap;
 }
 
-/* Individual Article Card */
 .readarticles-card {
     position: relative;
     width: 500px;
@@ -467,14 +466,12 @@
     filter: grayscale(0%);
 }
 
-/* Article Card Overlay */
 .readarticles-card-content {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 80%;
     padding: 20px 40px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
     color: white;
     text-align: left;
 }
@@ -492,7 +489,6 @@
     line-height: 1.4; 
 }
 
-/* Read Time and Arrow Icon */
 .readarticles-card-info {
     position: absolute;
     top: 20px; 
@@ -527,7 +523,6 @@
     transform: scale(1.1);
 }
 
-/* Keyframe Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -638,9 +633,9 @@
 }
 
 .faq-answer {
-    font-size: 16px;
-    color: #373025;
-    margin-top: -5px;
+    font-size: 16px !important;
+    color: #373025 !important;
+    margin-top: -5px !important;
     margin-bottom: -5px;
     max-height: 0;
     overflow: hidden;

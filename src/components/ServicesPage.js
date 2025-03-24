@@ -41,18 +41,18 @@ const ServicesPage = () => {
                     <div className="service-text">
                         <h2>Heatmap Calculator</h2>
                         <p>Offers a tailored estimated solar potential to help you understand energy savings and make informed solar decisions.</p>
-                        <div className="faqs-list">
+                        <div className="faqs-list2">
                             {heatmapfaqs.map((faq, index) => (
                                 <div
                                     key={index}
-                                    className={`faq-item ${openIndex === index ? 'open' : ''}`}
+                                    className={`faq-item2 ${openIndex === index ? 'open' : ''}`}
                                     onClick={() => toggleFAQ(index)}
                                 >
-                                    <div className="faq-question">
+                                    <div className="faq-question2">
                                         {faq.question}
                                         <span className="icon">{openIndex === index ? '-' : '+'}</span>
                                     </div>
-                                    {openIndex === index && <p className="faq-answer">{faq.answer}</p>}
+                                    {openIndex === index && <p className="faq-answer2">{faq.answer}</p>}
                                 </div>
                             ))}
                         </div>
@@ -66,18 +66,18 @@ const ServicesPage = () => {
                     <div className="service-text" style={{ marginLeft: '180px' }}>
                         <h2>Smart Solar Planner</h2>
                         <p>Choose the best solar solution based on your energy needs, roof size, ensuring optimal savings and efficiency.</p>
-                        <div className="faqs-list">
+                        <div className="faqs-list2">
                             {plannerfaqs.map((faq, index) => (
                                 <div
                                     key={index}
-                                    className={`faq-item ${openIndex === index ? 'open' : ''}`}
+                                    className={`faq-item2 ${openIndex === index ? 'open' : ''}`}
                                     onClick={() => toggleFAQ(index)}
                                 >
-                                    <div className="faq-question">
+                                    <div className="faq-question2">
                                         {faq.question}
                                         <span className="icon">{openIndex === index ? '-' : '+'}</span>
                                     </div>
-                                    {openIndex === index && <p className="faq-answer">{faq.answer}</p>}
+                                    {openIndex === index && <p className="faq-answer2">{faq.answer}</p>}
                                 </div>
                             ))}
                         </div>

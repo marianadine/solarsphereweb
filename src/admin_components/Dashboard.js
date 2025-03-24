@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalfAlt, faStar as faStarOutline } from '@fortawesome/free-solid-svg-icons';
 import './admincompo_css/dashboardstyle.css';
 import profilePic from '../imgs/article1.png';
+import { useNavigate } from "react-router-dom";
 
 import { Doughnut } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
@@ -10,6 +11,8 @@ import { Chart, ArcElement } from "chart.js";
 Chart.register(ArcElement);
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -96,7 +99,7 @@ const Dashboard = () => {
         <div className="recent-reviews">
           <div className="section-header">
             <h4>Recent Review</h4>
-            <button className="view-all-btn">View All</button>
+            <button className="view-all-btn" onClick={() => navigate('/review')}>View All</button>
           </div>
 
           <div className="review-card">

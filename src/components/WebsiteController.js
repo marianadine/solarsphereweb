@@ -13,9 +13,10 @@ import HeatmapCalculator from './HeatmapCalculator';
 import SmartSolarPlanner from './SmartSolarPlanner';
 import GeneratedPlan from './GeneratedPlan';
 
+import AdminNavBar from '../admin_components/AdminNavBar';
 import Dashboard from '../admin_components/Dashboard';
 import Accounts from '../admin_components/Accounts';
-import AdminNavBar from '../admin_components/AdminNavBar'; // Import AdminNavBar
+import Reviews from '../admin_components/Reviews';
 
 const WebsiteController = () => {
   return (
@@ -29,7 +30,7 @@ const WebsiteController = () => {
 
 const MainLayout = () => {
   const location = useLocation();
-  const adminRoutes = ["/dashboard", "/accounts"];
+  const adminRoutes = ["/dashboard", "/accounts", "/review"];
   const isAdminPage = adminRoutes.includes(location.pathname);
 
   return (
@@ -48,6 +49,7 @@ const MainLayout = () => {
         {/* Admin Routes */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/accounts" element={<Accounts />} />
+        <Route path="/review" element={<Reviews />} />
       </Routes>
       {!isAdminPage && <Footer />}
     </>

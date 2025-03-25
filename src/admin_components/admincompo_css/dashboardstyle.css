@@ -181,7 +181,7 @@
 .review-header {
     display: flex;
     align-items: center;
-    gap: 15px; 
+    gap: 15px;
 }
 
 .profile-pic {
@@ -243,7 +243,7 @@
 
 .stat {
     text-align: center;
-    width: 150px; 
+    width: 150px;
 }
 
 .stat-label {
@@ -306,99 +306,151 @@
         opacity: 0;
         transform: translateY(50px) scale(0.95);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
 }
 
-.dashboard-header, .dashboard-content {
+.dashboard-header,
+.dashboard-content {
     opacity: 0;
     animation: fadeSlideScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.dashboard-content > div {
+.dashboard-content>div {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeSlideScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     animation-delay: 0.2s;
 }
 
-.dashboard-content > div:nth-child(2) {
+.dashboard-content>div:nth-child(2) {
     animation-delay: 0.4s;
 }
 
-.dashboard-content > div:nth-child(3) {
+.dashboard-content>div:nth-child(3) {
     animation-delay: 0.6s;
 }
 
 .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
 }
 
 .modal {
-  background: white;
-  padding: 20px 30px;
-  border-radius: 10px;
-  width: 350px;
-  text-align: left;
-  font-family: 'Arial', sans-serif;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: left;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(0.9);
+    opacity: 0;
+    animation: slideIn 0.3s forwards 0.1s;
+}
+
+.logovertical {
+    display: block;
+    margin: 20px auto 30px auto;
+    width: 40%;
+    animation: slideIn 0.3s forwards 0.1s;
 }
 
 .modal .purpose {
-  font-size: 20px;
-  font-weight: 700;
-  color: #373025;
-  margin-top: -15px;
-  margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #373025;
+    margin-top: -15px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInText 0.4s forwards 0.2s;
 }
 
 .modal .email,
 .modal .date-time,
 .modal .contact,
 .modal .full-name {
-  font-size: 18px;
-  color: #373025;
-  font-weight: bold;
-  margin-top: -10px;
-  margin-bottom: 30px;
+    font-size: 18px;
+    color: #373025;
+    font-weight: bold;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeInText 0.4s forwards 0.3s;
 }
 
 .modal hr {
-  border: none;
-  border-top: 1px solid #ddd;
-  margin-top: -10px;
-}
-
-.modal .full-name {
-  font-size: 18px;
-  font-weight: bold;
-  color: #373025;
+    border: none;
+    border-top: 1px solid #ddd;
+    margin-top: -10px;
+    opacity: 0;
+    animation: fadeInText 0.4s forwards 0.3s;
 }
 
 .close-btn {
-  background: #D3AB3F;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: -15px;
-  margin-bottom: 10px;
-  width: 100%;
-  font-size: 14px;
-  font-weight: bold;
+    background: #D3AB3F;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInText 0.4s forwards 0.4s;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .close-btn:hover {
-  background: #a78731;
+    background: #a78731;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

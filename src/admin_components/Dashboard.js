@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalfAlt, faStar as faStarOutline } from '@fortawesome/free-solid-svg-icons';
 import './admincompo_css/dashboardstyle.css';
 import profilePic from '../imgs/article1.png';
+import logo from '../imgs/3MRlogovertical.png';
 import { useNavigate } from "react-router-dom";
 
 import { Doughnut } from "react-chartjs-2";
@@ -192,6 +193,8 @@ const Dashboard = () => {
       {selectedSchedule && (
         <div className="modal-overlay">
           <div className="modal">
+          <img src={logo} alt="Profile" className="logovertical" />
+
             <p>Purpose</p>
             <p className="purpose">{selectedSchedule.purpose}</p>
 

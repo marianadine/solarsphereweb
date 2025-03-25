@@ -31,7 +31,7 @@ const AdminNavBar = () => {
         <img src={profilePic} alt="Profile" className="profile-pic" />
         <span className="admin-name">
           Bien Rufo 
-          <FontAwesomeIcon icon={faChevronDown} className="dropdown-icon" />
+          <FontAwesomeIcon icon={faChevronDown} className="dropdownicon" />
         </span>
 
         {dropdownOpen && (

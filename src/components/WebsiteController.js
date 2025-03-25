@@ -31,7 +31,9 @@ const WebsiteController = () => {
 const MainLayout = () => {
   const location = useLocation();
   const adminRoutes = ["/dashboard", "/accounts", "/review"];
+  const noFooterRoutes = ["/contact", ...adminRoutes]; // Exclude footer on Contact & Admin pages
   const isAdminPage = adminRoutes.includes(location.pathname);
+  const hideFooter = noFooterRoutes.includes(location.pathname);
 
   return (
     <>
@@ -51,9 +53,10 @@ const MainLayout = () => {
         <Route path="/accounts" element={<Accounts />} />
         <Route path="/review" element={<Reviews />} />
       </Routes>
-      {!isAdminPage && <Footer />}
+      {!hideFooter && <Footer />}
     </>
   );
 };
+
 
 export default WebsiteController;

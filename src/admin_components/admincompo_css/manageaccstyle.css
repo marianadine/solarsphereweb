@@ -1,0 +1,214 @@
+.container {
+    display: flex;
+    padding: 0px 40px;
+    margin-top: 120px;
+}
+
+.sidesection {
+    width: 15%;
+    height: 80vh;
+    padding: 20px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.pagename h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #373025;
+    margin-bottom: -10px;
+}
+
+.pagename p {
+    font-size: 14px;
+    color: #6d6d6d;
+}
+
+.sidebottomsection {
+    margin-top: auto;
+}
+
+.adminusertoggle {
+    display: flex;
+    background: #fff;
+    border-radius: 8px;
+    border: #d1d1d1 1px solid;
+    padding: 5px;
+    margin-bottom: -15px;
+}
+
+.adminusertoggle button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: transparent;
+}
+
+.adminusertoggle .active {
+    background: #d3ab3f;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.adminusertoggle button:not(.active) {
+    color: #898989;
+}
+
+.tableclock {
+    margin-top: 30px;
+    color: #373025;
+}
+
+.tabletime {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: -10px;
+}
+
+.tablerealdate {
+    font-size: 14px;
+    color: #6d6d6d;
+}
+
+.tablesection {
+    flex: 1;
+    padding: 20px 60px;
+}
+
+.topsection-table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.last-updated-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.last-updated-container p {
+    font-size: 14px;
+    color: #6d6d6d;
+    margin: 0;
+}
+
+.topsection-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.add-account-btn {
+    background: #373025;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+}
+
+.add-account-btn:hover {
+    background: #524431;
+}
+
+.dropdown-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.filter-dropdown {
+    background: #373025;
+    color: white;
+    border: none;
+    padding: 10px 40px 10px 15px; 
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.dropdown-icon {
+    position: absolute;
+    right: 15px;
+    pointer-events: none;
+    color: white;
+    font-size: 14px;
+}
+
+.filter-dropdown:hover {
+    background: #524431;
+}
+
+.table {
+    margin-top: 15px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    height: 590px;
+}
+
+.table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    font-weight: bold;
+}
+
+.edit-icon {
+    cursor: pointer;
+    color: #777;
+    transition: color 0.3s ease;
+}
+
+.edit-icon:hover {
+    color: #373025;
+}
+
+.save-pdf-btn {
+    background: #373025;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.save-pdf-btn:hover {
+    background: #524431;
+}

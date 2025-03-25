@@ -67,18 +67,39 @@
     display: none;
 }
 
+.reviewheader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.review-filter-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
 .review-filter {
     background: #F3F5ED;
     border: none;
-    padding: 8px;
+    padding: 8px 35px 8px 12px;
     border-radius: 10px;
     font-size: 14px;
     font-weight: 600;
     color: #373025;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-    display: flex;
-    align-items: center;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.review-dropdown-icon {
+    position: absolute;
+    right: 10px;
+    pointer-events: none;
+    color: #373025;
+    font-size: 14px;
 }
 
 .review-filter:hover {

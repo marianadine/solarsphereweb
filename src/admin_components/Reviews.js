@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./admincompo_css/reviewstyle.css";
 import profilePic from "../imgs/article1.png";
-import { faStar, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faPlus, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const fixedReviews = [
@@ -97,16 +97,21 @@ const Reviews = () => {
             <div className="review-panel">
                 <div className="reviewheader">
                     <h2>Recent Reviews</h2>
-                    <select className="review-filter" onChange={(e) => setFilterStars(e.target.value)}>
-                        <option value="All">View All</option>
-                        <option value="Latest">By Date</option>
-                        <option value="5">5 stars</option>
-                        <option value="4">4 stars</option>
-                        <option value="3">3 stars</option>
-                        <option value="2">2 stars</option>
-                        <option value="1">1 star</option>
-                    </select>
+
+                    <div className="review-filter-wrapper">
+                        <select className="review-filter" onChange={(e) => setFilterStars(e.target.value)}>
+                            <option value="All">View All</option>
+                            <option value="Latest">By Date</option>
+                            <option value="5">5 stars</option>
+                            <option value="4">4 stars</option>
+                            <option value="3">3 stars</option>
+                            <option value="2">2 stars</option>
+                            <option value="1">1 star</option>
+                        </select>
+                        <FontAwesomeIcon icon={faChevronDown} className="review-dropdown-icon" />
+                    </div>
                 </div>
+
 
                 <section className="reviewlist">
                     <div className="review-cards">

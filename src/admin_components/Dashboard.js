@@ -14,6 +14,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [selectedSchedule, setSelectedSchedule] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -36,6 +37,16 @@ const Dashboard = () => {
     month: 'long',
     year: 'numeric',
   });
+
+  const schedules = [
+    { date: "18", day: "Monday", details: "No events scheduled." },
+    { date: "19", day: "Tuesday", highlight: "On-site Assessment", fullName: "John Doe", email: "johndoe@example.com", contactNumber: "+1234567890", purpose: "On-site Assessment", dateTime: "19 March 2025", details: "Location: 123 Solar Street" },
+    { date: "20", day: "Wednesday", details: "No events scheduled." },
+    { date: "21", day: "Thursday", details: "No events scheduled." },
+    { date: "22", day: "Friday", details: "No events scheduled." },
+    { date: "23", day: "Saturday", highlight: "Consultation", fullName: "Jane Smith", email: "janesmith@example.com", contactNumber: "+0987654321", purpose: "Consultation", dateTime: "23 March 2025, 2:00 PM - 3:30 PM", details: "Location: 456 Renewable Rd" }
+  ];
+
 
   return (
     <div>
@@ -66,32 +77,17 @@ const Dashboard = () => {
             <button className="view-all-btn">View All</button>
           </div>
           <div className="schedule-grid">
-            <div className="schedule-card">
-              <p className="date">18</p>
-              <p className="day">Monday</p>
-            </div>
-            <div className="schedule-card active">
-              <p className="date">19</p>
-              <p className="highlight">On-site <br /> Assessment</p>
-              <p className="day">Tuesday</p>
-            </div>
-            <div className="schedule-card">
-              <p className="date">20</p>
-              <p className="day">Wednesday</p>
-            </div>
-            <div className="schedule-card">
-              <p className="date">21</p>
-              <p className="day">Thursday</p>
-            </div>
-            <div className="schedule-card">
-              <p className="date">22</p>
-              <p className="day">Friday</p>
-            </div>
-            <div className="schedule-card active">
-              <p className="date">23</p>
-              <p className="highlight">Consultation</p>
-              <p className="day">Saturday</p>
-            </div>
+            {schedules.map((schedule, index) => (
+              <div
+                key={index}
+                className={`schedule-card ${schedule.highlight ? "active" : ""}`}
+                onClick={() => schedule.highlight && setSelectedSchedule(schedule)}
+              >
+                <p className="date">{schedule.date}</p>
+                {schedule.highlight && <p className="highlight">{schedule.highlight}</p>}
+                <p className="day">{schedule.day}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -191,6 +187,31 @@ const Dashboard = () => {
           </div>
         </div>
       </section>
+
+      {/* Modal for Active Schedule Details */}
+      {selectedSchedule && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <p>Purpose</p>
+            <p className="purpose">{selectedSchedule.purpose}</p>
+
+            <p>Date & Time</p>
+            <p className="date-time">{selectedSchedule.dateTime}</p>
+
+            <p>Email</p>
+            <p className="email">{selectedSchedule.email}</p>
+
+            <p>Contact Number</p>
+            <p className="contact">{selectedSchedule.contactNumber}</p>
+
+            <hr />
+
+            <p>Full Name</p>
+            <p className="full-name">{selectedSchedule.fullName}</p>
+            <button className="close-btn" onClick={() => setSelectedSchedule(null)}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

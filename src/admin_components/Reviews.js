@@ -5,20 +5,91 @@ import { faStar, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const fixedReviews = [
-    { id: 1, name: "Na Jaemin", stars: 5, date: "March 10", reviewText: "Excellent service! Highly recommended." },
-    { id: 2, name: "Mark Lee", stars: 4, date: "March 8", reviewText: "Very good but could be better in some areas." },
-    { id: 3, name: "Lee Jeno", stars: 3, date: "March 5", reviewText: "Average experience, nothing special." },
-    { id: 4, name: "Haechan", stars: 2, date: "March 2", reviewText: "Not satisfied. Needs improvement." },
-    { id: 5, name: "Jisung Park", stars: 1, date: "March 1", reviewText: "Very bad experience. Do not recommend." },
+    {
+        id: 1,
+        name: "Na Jaemin",
+        stars: 5,
+        date: "March 10, 2025",
+        reviewText: "Excellent service! The team was professional, punctual, and extremely knowledgeable. They answered all my questions and ensured the installation process was smooth. I’ve noticed a significant decrease in my electricity bills, and I couldn't be happier. Highly recommended!"
+    },
+    {
+        id: 2,
+        name: "Mark Lee",
+        stars: 4,
+        date: "March 8, 2025",
+        reviewText: "Very good service overall, but there’s still room for improvement. The installation was done well, and the solar panels are performing efficiently. However, customer support took a bit longer than expected to respond to my inquiries. Still, I appreciate their effort and dedication."
+    },
+    {
+        id: 3,
+        name: "Lee Jeno",
+        stars: 3,
+        date: "March 5, 2025",
+        reviewText: "An average experience. The team was friendly, but there were some delays in the installation schedule. The panels are working fine, but I was expecting a bit more in terms of after-sales support and guidance on maintenance. It's okay, but not outstanding."
+    },
+    {
+        id: 4,
+        name: "Lee Haechan",
+        stars: 2,
+        date: "March 2, 2025",
+        reviewText: "Not satisfied with the service. The installation took longer than promised, and there was a lack of clear communication. While the system works, I faced some initial issues that should have been avoided with better planning and coordination."
+    },
+    {
+        id: 5,
+        name: "Jisung Park",
+        stars: 1,
+        date: "March 1, 2025",
+        reviewText: "Very bad experience. The customer service was unresponsive, and the installation team seemed disorganized. I encountered multiple issues with the setup, and getting them resolved was a hassle. I would not recommend this service based on my experience."
+    },
+    {
+        id: 6,
+        name: "Kim Doyoung",
+        stars: 5,
+        date: "February 28, 2025",
+        reviewText: "Outstanding work! The team provided a detailed consultation, ensuring I understood the benefits of solar energy. The installation was seamless, and the panels have been delivering great results. A fantastic investment!"
+    },
+    {
+        id: 7,
+        name: "Jungwoo Kim",
+        stars: 4,
+        date: "February 25, 2025",
+        reviewText: "Happy with my solar setup! The team was efficient, and the pricing was reasonable. My only issue was a minor delay in scheduling, but apart from that, everything went smoothly. Would definitely recommend them!"
+    },
+    {
+        id: 8,
+        name: "Johnny Suh",
+        stars: 3,
+        date: "February 20, 2025",
+        reviewText: "The installation was okay, but the initial consultation could have been more informative. I had to do a lot of my own research. The system works fine, but the process felt a bit rushed. Decent, but not exceptional."
+    },
+    {
+        id: 9,
+        name: "Lee Taeyong",
+        stars: 2,
+        date: "February 15, 2025",
+        reviewText: "I had high expectations, but unfortunately, the service did not meet them. The team was late, and there was a lack of proper communication. While the system functions, the overall experience left much to be desired."
+    },
+    {
+        id: 10,
+        name: "Yuta Nakamoto",
+        stars: 1,
+        date: "February 10, 2025",
+        reviewText: "Extremely disappointed. The installation was not done properly, and I had to call them multiple times to fix issues. Customer support was slow to respond, and the experience was frustrating. Would not recommend."
+    }
 ];
 
 const Reviews = () => {
     const [selectedReview, setSelectedReview] = useState(fixedReviews[0]);
     const [filterStars, setFilterStars] = useState("All");
 
-    const filteredReviews = filterStars === "All"
-        ? fixedReviews
-        : fixedReviews.filter(review => review.stars === parseInt(filterStars));
+    const sortedReviews = [...fixedReviews].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    const filteredReviews =
+        filterStars === "All"
+            ? sortedReviews
+            : filterStars === "Latest"
+                ? sortedReviews
+                : sortedReviews.filter((review) => review.stars === parseInt(filterStars));
+
 
     return (
         <div className="reviews-container">
@@ -28,6 +99,7 @@ const Reviews = () => {
                     <h2>Recent Reviews</h2>
                     <select className="review-filter" onChange={(e) => setFilterStars(e.target.value)}>
                         <option value="All">View All</option>
+                        <option value="Latest">By Date</option>
                         <option value="5">5 stars</option>
                         <option value="4">4 stars</option>
                         <option value="3">3 stars</option>
@@ -46,7 +118,7 @@ const Reviews = () => {
                             >
                                 <p className="reviewname">{review.name}</p>
                                 <p>{review.stars} stars</p>
-                                <p className="reviewdate">Date: {review.date}</p>
+                                <p>{review.date}</p>
                             </div>
                         ))}
                     </div>
@@ -67,7 +139,7 @@ const Reviews = () => {
                         <FontAwesomeIcon
                             key={i}
                             icon={faStar}
-                            className={i < selectedReview.stars ? "staricon filled" : "staricon empty"}
+                            className={`staricon ${i < selectedReview.stars ? "filled" : "empty"}`}
                         />
                     ))}
                 </div>
@@ -79,7 +151,7 @@ const Reviews = () => {
                     <button className="addonwebsite">
                         <FontAwesomeIcon icon={faPlus} className="plus-icon" /> Show On Website
                     </button>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    <p>Easily manage customer reviews by reviewing, filtering, and selecting which testimonials to display on the website.</p>
                 </div>
             </section>
         </div>

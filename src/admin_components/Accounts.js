@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./admincompo_css/manageaccstyle.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faPrint, faPen, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faPrint, faPen, faChevronDown, faPowerOff } from "@fortawesome/free-solid-svg-icons";
 
 const Accounts = () => {
   const [selected, setSelected] = useState("Admin");
-  const [filter, setFilter] = useState("All Accounts");
+  const [filter, setFilter] = useState("All");
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const Accounts = () => {
   ];
 
   const filteredUserAccounts = userAccounts.filter(account =>
-    filter === "All Accounts" || account.status === filter
+    filter === "All" || account.status === filter
   );
 
   const accounts = selected === "Admin" ? adminAccounts : filteredUserAccounts;
@@ -128,9 +128,18 @@ const Accounts = () => {
           </table>
         </div>
 
-        <button className="save-pdf-btn">
-          <FontAwesomeIcon icon={faPrint} style={{ marginRight: "8px" }} /> Save PDF
-        </button>
+        <div className="bottom-actions">
+          <button className="save-pdf-btn">
+            <FontAwesomeIcon icon={faPrint} style={{ marginRight: "8px" }} /> Save PDF
+          </button>
+
+          {selected === "User" && (
+            <button className="deactivate-btn">
+              <FontAwesomeIcon icon={faPowerOff} style={{ marginRight: "8px" }} />
+              Deactivate
+            </button>
+          )}
+        </div>
       </section>
     </div>
   );

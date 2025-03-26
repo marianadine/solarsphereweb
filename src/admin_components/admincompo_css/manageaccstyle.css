@@ -122,7 +122,7 @@
 }
 
 .add-account-btn:hover {
-    background: #524431;
+    background: #d3ab3f;
 }
 
 .dropdown-wrapper {
@@ -135,7 +135,7 @@
     background: #373025;
     color: white;
     border: none;
-    padding: 10px 40px 10px 15px; 
+    padding: 10px 40px 10px 15px;
     border-radius: 15px;
     cursor: pointer;
     font-size: 14px;
@@ -191,10 +191,27 @@
 }
 
 .edit-icon:hover {
-    color: #373025;
+    color: #d3ab3f;
+}
+
+.bottom-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .save-pdf-btn {
+    margin-right: auto;
+}
+
+.deactivate-btn {
+    margin-left: auto;
+}
+
+.save-pdf-btn,
+.deactivate-btn {
     background: #373025;
     color: white;
     border: none;
@@ -209,6 +226,7 @@
     margin-top: 20px;
 }
 
-.save-pdf-btn:hover {
-    background: #524431;
+.save-pdf-btn:hover,
+.deactivate-btn:hover {
+    background: #d3ab3f;
 }

@@ -6,6 +6,15 @@ import { faPrint, faPen, faChevronDown, faTimes } from "@fortawesome/free-solid-
 const Booking = () => {
     const [currentTime, setCurrentTime] = useState(new Date());
     const [filter, setFilter] = useState("All");
+    const [bookings, setBookings] = useState([
+        { id: "00001", email: "junathanmikmik@email.com", name: "Junathan Mikmik Rufo", contact: "0918242198", purpose: "Consult", datetime: "12 September 10:00 AM", status: "Incoming" },
+        { id: "00002", email: "dubumarie@email.com", name: "Dubu Marie Rufo", contact: "0918242198", purpose: "Maintenance", datetime: "12 September 11:00 AM", status: "Done" },
+        { id: "00003", email: "najaemin@email.com", name: "Na Jaemin", contact: "0918242198", purpose: "Engineering", datetime: "12 September 12:00 PM", status: "Canceled" },
+        { id: "00004", email: "zhongchenle@email.com", name: "Zhong Chenle", contact: "0918242198", purpose: "Engineering", datetime: "12 September 01:00 PM", status: "Incoming" },
+    ]);
+
+    const [selectedBooking, setSelectedBooking] = useState(null);
+    const [showPopup, setShowPopup] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -28,17 +37,21 @@ const Booking = () => {
         year: "numeric",
     });
 
-    const bookings = [
-        { id: "00001", email: "junathanmikmik@email.com", name: "Junathan Mikmik Rufo", contact: "0918242198", purpose: "Consult", datetime: "12 September 10:00 AM", status: "Incoming" },
-        { id: "00002", email: "dubumarie@email.com", name: "Dubu Marie Rufo", contact: "0918242198", purpose: "Maintenance", datetime: "12 September 11:00 AM", status: "Done" },
-        { id: "00003", email: "najaemin@email.com", name: "Na Jaemin", contact: "0918242198", purpose: "Engineering", datetime: "12 September 12:00 PM", status: "Canceled" },
-        { id: "00004", email: "zhongchenle@email.com", name: "Zhong Chenle", contact: "0918242198", purpose: "Engineering", datetime: "12 September 01:00 PM", status: "Incoming" },
-    ];
-
     // Filter bookings based on the selected status
     const filteredBookings = bookings.filter(booking => 
         filter === "All" || booking.status === filter
     );
+
+    const handleCancelBooking = () => {
+        if (selectedBooking) {
+            setBookings(prevBookings =>
+                prevBookings.map(booking =>
+                    booking.id === selectedBooking.id ? { ...booking, status: "Canceled" } : booking
+                )
+            );
+            setShowPopup(false);
+        }
+    };
 
     return (
         <div className="container">
@@ -89,7 +102,11 @@ const Booking = () => {
                         </thead>
                         <tbody>
                             {filteredBookings.map((booking) => (
-                                <tr key={booking.id}>
+                                <tr
+                                    key={booking.id}
+                                    className={selectedBooking?.id === booking.id ? "selected-row" : ""}
+                                    onClick={() => setSelectedBooking(booking)}
+                                >
                                     <td>{booking.id}</td>
                                     <td>{booking.email}</td>
                                     <td>{booking.name}</td>
@@ -111,11 +128,28 @@ const Booking = () => {
                         <FontAwesomeIcon icon={faPrint} style={{ marginRight: "8px" }} /> Save PDF
                     </button>
 
-                    <button className="cancel-btn">
+                    <button
+                        className="cancel-btn"
+                        disabled={!selectedBooking || selectedBooking.status === "Canceled"}
+                        onClick={() => setShowPopup(true)}
+                    >
                         <FontAwesomeIcon icon={faTimes} style={{ marginRight: "8px" }} /> Cancel
                     </button>
                 </div>
             </section>
+
+            {showPopup && (
+                <div className="popup-overlay">
+                    <div className="popup-box">
+                        <h3>Cancel Booking</h3>
+                        <p>Are you sure you want to cancel this booking?</p>
+                        <div className="popup-buttons">
+                            <button className="yes-btn" onClick={handleCancelBooking}>Yes</button>
+                            <button className="no-btn" onClick={() => setShowPopup(false)}>No</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

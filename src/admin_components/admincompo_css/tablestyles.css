@@ -107,7 +107,8 @@
     align-items: center;
 }
 
-.add-account-btn {
+.add-account-btn,
+.add-material-btn {
     background: #373025;
     color: white;
     border: none;
@@ -121,7 +122,8 @@
     transition: 0.3s ease-in-out;
 }
 
-.add-account-btn:hover {
+.add-account-btn:hover,
+.add-material-btn:hover {
     background: #d3ab3f;
 }
 
@@ -166,11 +168,22 @@
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     height: 590px;
+    overflow-y: auto;
+    position: relative;
 }
 
 .table table {
     width: 100%;
     border-collapse: collapse;
+}
+
+.table thead th {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 2;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
 }
 
 .table th,
@@ -180,9 +193,6 @@
     border-bottom: 1px solid #ddd;
 }
 
-.table th {
-    font-weight: bold;
-}
 
 .edit-icon {
     cursor: pointer;
@@ -213,7 +223,9 @@
 .save-pdf-btn,
 .deactivate-btn,
 .cancel-btn,
-.remove-btn {
+.remove-btn,
+.yes-btn,
+.no-btn {
     background: #373025;
     color: white;
     border: none;
@@ -231,7 +243,9 @@
 .save-pdf-btn:hover,
 .deactivate-btn:hover,
 .cancel-btn:hover,
-.remove-btn:hover {
+.remove-btn:hover,
+.yes-btn:hover,
+.no-btn:hover {
     background: #d3ab3f;
 }
 
@@ -241,11 +255,91 @@
     border-radius: 10px;
 }
 
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: auto;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-box h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.popup-box p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.yes-btn, .no-btn {
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.no-btn {
+    background-color: #c9c9c9;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.table tbody tr {
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.table tbody tr:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.selected-row {
+    background: rgba(0, 128, 255, 0.2) !important;
+    font-weight: bold;
+}
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -257,6 +351,7 @@
         opacity: 0;
         transform: translateX(-30px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -268,6 +363,7 @@
         opacity: 0;
         transform: scale(0.95);
     }
+
     to {
         opacity: 1;
         transform: scale(1);

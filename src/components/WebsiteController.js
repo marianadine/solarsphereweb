@@ -17,6 +17,9 @@ import AdminNavBar from '../admin_components/AdminNavBar';
 import Dashboard from '../admin_components/Dashboard';
 import Accounts from '../admin_components/Accounts';
 import Reviews from '../admin_components/Reviews';
+import Booking from '../admin_components/Booking';
+import SolarPlans from '../admin_components/SolarPlans';
+import Materials from '../admin_components/Materials';
 
 const WebsiteController = () => {
   return (
@@ -30,8 +33,8 @@ const WebsiteController = () => {
 
 const MainLayout = () => {
   const location = useLocation();
-  const adminRoutes = ["/dashboard", "/accounts", "/review"];
-  const noFooterRoutes = ["/contact", ...adminRoutes]; // Exclude footer on Contact & Admin pages
+  const adminRoutes = ["/dashboard", "/accounts", "/review", "/booking", "/solarplans", "/materials"];
+  const noFooterRoutes = ["/contact", ...adminRoutes];
   const isAdminPage = adminRoutes.includes(location.pathname);
   const hideFooter = noFooterRoutes.includes(location.pathname);
 
@@ -52,6 +55,9 @@ const MainLayout = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/accounts" element={<Accounts />} />
         <Route path="/review" element={<Reviews />} />
+        <Route path="/booking" element={<Booking />} />
+        <Route path="/solarplans" element={<SolarPlans />} />
+        <Route path="/materials" element={<Materials />} />
       </Routes>
       {!hideFooter && <Footer />}
     </>

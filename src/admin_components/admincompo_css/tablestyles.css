@@ -211,7 +211,9 @@
 }
 
 .save-pdf-btn,
-.deactivate-btn {
+.deactivate-btn,
+.cancel-btn,
+.remove-btn {
     background: #373025;
     color: white;
     border: none;
@@ -227,6 +229,63 @@
 }
 
 .save-pdf-btn:hover,
-.deactivate-btn:hover {
+.deactivate-btn:hover,
+.cancel-btn:hover,
+.remove-btn:hover {
     background: #d3ab3f;
+}
+
+.total-bookings {
+    border: #A6A6A6 1px solid;
+    padding: 8px 15px;
+    border-radius: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInTable {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.container {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.sidesection {
+    animation: slideIn 0.8s ease-in-out;
+}
+
+.tablesection {
+    animation: fadeInTable 0.7s ease-in-out;
+}
+
+.table {
+    animation: fadeIn 0.5s ease-in-out;
 }

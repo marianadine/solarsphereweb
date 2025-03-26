@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./admincompo_css/manageaccstyle.css";
+import "./admincompo_css/tablestyles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faPrint, faPen, faChevronDown, faPowerOff } from "@fortawesome/free-solid-svg-icons";
 

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './components_css/homepagestyle.css';
 import NavBar from './NavBar';
 
+import { useNavigate } from "react-router-dom";
+
 import home from '../imgs/homeimage.png';
 import article1 from '../imgs/article1.png';
 import article2 from '../imgs/article2.png';
@@ -15,6 +17,8 @@ import { faMapMarkerAlt, faSun, faFire, faLeaf } from '@fortawesome/free-solid-s
 const slides = [article1, article2, article3];
 
 const HomePage = () => {
+    const navigate = useNavigate();
+    
     const [location, setLocation] = useState("");
 
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -61,7 +65,7 @@ const HomePage = () => {
                                 value={location}
                                 onChange={(e) => setLocation(e.target.value)}
                             />
-                            <button type="submit">Get Started</button>
+                            <button type="submit" onClick={() => navigate('/heatmap')}>Get Started</button>
                         </form>
                     </div>
 

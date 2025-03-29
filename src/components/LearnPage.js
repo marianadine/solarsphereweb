@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import pic from "../imgs/learngradient.png";
-import { Leaf, Heart, Wrench } from "lucide-react";
+import logo from '../imgs/3MRlogohorizontal.png';
+import sunIcon from "../imgs/3dsun.png";
+
+import { X, Leaf, Heart, Wrench } from "lucide-react";
 import "./components_css/learnpagestyle.css";
 
 const LearnPage = () => {
@@ -37,21 +40,21 @@ const LearnPage = () => {
     };
 
     const reviewRef = useRef(null);
-    let isDragging = false;
-    let startX, scrollLeft;
 
     useEffect(() => {
         const reviews = reviewRef.current;
         if (!reviews) return;
 
-        const scrollSpeed = 1;
+        let scrollSpeed = 1;
         let requestId;
 
         const scrollReviews = () => {
-            if (reviews.scrollLeft >= reviews.scrollWidth / 2) {
+            reviews.scrollLeft += scrollSpeed;
+
+            if (reviews.scrollLeft >= reviews.scrollWidth - reviews.clientWidth) {
                 reviews.scrollLeft = 0;
             }
-            reviews.scrollLeft += scrollSpeed;
+
             requestId = requestAnimationFrame(scrollReviews);
         };
 
@@ -60,25 +63,27 @@ const LearnPage = () => {
         return () => cancelAnimationFrame(requestId);
     }, []);
 
+    const [showPopup, setShowPopup] = useState(false);
+    const [reviewText, setReviewText] = useState("");
+    const [isAnonymous, setIsAnonymous] = useState(false);
 
-    const startDrag = (e) => {
-        isDragging = true;
-        startX = e.pageX - reviewRef.current.offsetLeft;
-        scrollLeft = reviewRef.current.scrollLeft;
+    const togglePopup = () => setShowPopup(!showPopup);
+
+    const handleReviewSubmit = () => {
+        console.log("Review Submitted:", { review: reviewText, anonymous: isAnonymous });
+        setShowPopup(false);
+        setReviewText("");
+        setIsAnonymous(false);
+        setShowModal(true);
+
+        setTimeout(() => {
+            setShowModal(false);
+        }, 3000);
     };
 
-    const dragging = (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - reviewRef.current.offsetLeft;
-        const walk = (x - startX) * 2; // Adjust drag speed
-        reviewRef.current.scrollLeft = scrollLeft - walk;
-    };
-
-    const stopDrag = () => {
-        isDragging = false;
-    };
-
+    const [rating, setRating] = useState(0);
+    const [hover, setHover] = useState(0);
+    const [showModal, setShowModal] = useState(false);
 
     return (
         <div>
@@ -149,7 +154,7 @@ const LearnPage = () => {
 
             <section className="rate">
                 <div className="rate-content">
-                    <button className="rate-button">Rate Us</button>
+                    <button className="rate-button" onClick={togglePopup}>Rate Us</button>
                     <div className="rate-info">
                         <h2 className="rate-title">What our clients say about us</h2>
                         <p className="rate-description">
@@ -169,9 +174,73 @@ const LearnPage = () => {
                         <div className="review-box">Review 8</div>
                     ]))}
                 </div>
-
             </section>
 
+            {showPopup && (
+                <div className="popup-review-overlay">
+                    <div className="popup-review-box">
+                        <div className="popup-review-header">
+                            <img src={logo} alt="3MR Logo" className="review-logo" />
+                            <button className="closereviewbutton" onClick={togglePopup}>
+                                <X size={24} />
+                            </button>
+                        </div>
+                        <h2 className="review-title">How are you feeling?</h2>
+                        <p className="review-description">
+                            Share your thoughts with us! Let us know about your experience. Your feedback helps us improve and serve you better.
+                        </p>
+
+                        <div className="star-rating">
+                            {[...Array(5)].map((_, index) => {
+                                const starValue = index + 1;
+                                return (
+                                    <span
+                                        key={index}
+                                        className={`star ${starValue <= (hover || rating) ? "filled" : "empty"}`}
+                                        onClick={() => setRating(starValue)}
+                                        onMouseEnter={() => setHover(starValue)}
+                                        onMouseLeave={() => setHover(0)}
+                                    >
+                                        ★
+                                    </span>
+                                );
+                            })}
+                        </div>
+
+                        <textarea
+                            className="review-textarea"
+                            placeholder="Write your review..."
+                            value={reviewText}
+                            maxLength={800}
+                            rows={5}
+                            onChange={(e) => setReviewText(e.target.value)}
+                        ></textarea>
+                        <div className="review-footer">
+                            <span className="char-count">{reviewText.length}/800</span>
+                            <label className="anonymous-option">
+                                <input type="checkbox" checked={isAnonymous} onChange={() => setIsAnonymous(!isAnonymous)} />
+                                Submit Anonymously
+                            </label>
+                        </div>
+                        <button className="submit-review-button" onClick={handleReviewSubmit}>
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            )}
+
+            {showModal && (
+                <div className="modalreviewoverlay">
+                    <div className="modalreviewcontent">
+                        <div className="popup-review-header">
+                            <img src={logo} alt="3MR Logo" className="review-logo" />
+                        </div>
+                        <img src={sunIcon} alt="Thank you" className="modalreviewicon" />
+                        <h2>Thank you for your feedback!</h2>
+                        <p>We appreciate your time and will use your feedback to improve our services.</p>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

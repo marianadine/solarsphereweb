@@ -193,7 +193,7 @@ const Dashboard = () => {
       {selectedSchedule && (
         <div className="modal-overlay">
           <div className="modal">
-          <img src={logo} alt="Profile" className="logovertical" />
+          <img src={logo} alt="Logo" className="logovertical" />
 
             <p>Purpose</p>
             <p className="purpose">{selectedSchedule.purpose}</p>

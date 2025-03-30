@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./admincompo_css/tablestyles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPrint, faChevronDown, faQuestionCircle, faTimes, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPrint, faChevronDown, faTimes, faPlus } from "@fortawesome/free-solid-svg-icons";
+import logo from '../imgs/3MRlogovertical.png';
 
 const Materials = () => {
     const [currentTime, setCurrentTime] = useState(new Date());
@@ -17,20 +18,12 @@ const Materials = () => {
         { id: "00008", location: "Taguig, NCR", name: "Solar Cables", price: 4500 },
         { id: "00009", location: "Angeles, Pampanga", name: "Surge Protectors", price: 6000 },
         { id: "00010", location: "Calamba, Laguna", name: "PV Combiner Box", price: 10000 },
-        { id: "00011", location: "Marikina, NCR", name: "Smart Energy Meter", price: 12000 },
-        { id: "00012", location: "Pasig, NCR", name: "Micro Inverter", price: 18000 },
-        { id: "00013", location: "Baguio, Benguet", name: "Grounding Kit", price: 5000 },
-        { id: "00014", location: "Cebu City, Cebu", name: "Flexible Conduits", price: 3500 },
-        { id: "00015", location: "Davao City, Davao", name: "Cable Management Clips", price: 2000 },
-        { id: "00016", location: "Santa Rosa, Laguna", name: "Weatherproof Junction Box", price: 5500 },
-        { id: "00017", location: "Cainta, Rizal", name: "High-Efficiency Solar Panel", price: 27000 },
-        { id: "00018", location: "Las Piñas, NCR", name: "Hybrid Solar Inverter", price: 30000 },
-        { id: "00019", location: "Mandaluyong, NCR", name: "Heavy Duty Solar Mounts", price: 9000 },
-        { id: "00020", location: "Parañaque, NCR", name: "Lithium-Ion Battery Pack", price: 40000 },
     ]);
-    
+
     const [selectedMaterial, setSelectedMaterial] = useState(null);
     const [showPopup, setShowPopup] = useState(false);
+    const [showAddPopup, setShowAddPopup] = useState(false);
+    const [newMaterial, setNewMaterial] = useState({ id: "", location: "", name: "", price: "" });
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -67,6 +60,14 @@ const Materials = () => {
         }
     };
 
+    const handleAddMaterial = () => {
+        if (newMaterial.id && newMaterial.location && newMaterial.name && newMaterial.price) {
+            setMaterials([...materials, { ...newMaterial, price: Number(newMaterial.price) }]);
+            setShowAddPopup(false);
+            setNewMaterial({ id: "", location: "", name: "", price: "" });
+        }
+    };
+
     return (
         <div className="container">
             <section className="sidesection">
@@ -90,7 +91,7 @@ const Materials = () => {
                     </div>
 
                     <div className="topsection-actions">
-                    <div className="dropdown-wrapper">
+                        <div className="dropdown-wrapper">
                             <select className="filter-dropdown" onChange={(e) => setFilter(e.target.value)} value={filter}>
                                 <option value="All">All Materials</option>
                                 <option value="Low Price">Low Price</option>
@@ -99,7 +100,7 @@ const Materials = () => {
                             <FontAwesomeIcon icon={faChevronDown} className="dropdown-icon" />
                         </div>
 
-                        <button className="add-material-btn">
+                        <button className="add-material-btn" onClick={() => setShowAddPopup(true)}>
                             <FontAwesomeIcon icon={faPlus} style={{ marginRight: "8px" }} /> Add Material
                         </button>
                     </div>
@@ -113,7 +114,6 @@ const Materials = () => {
                                 <th>Location</th>
                                 <th>Name</th>
                                 <th>Price (PHP)</th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -127,9 +127,6 @@ const Materials = () => {
                                     <td>{mat.location}</td>
                                     <td>{mat.name}</td>
                                     <td>{mat.price.toLocaleString()}</td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faQuestionCircle} className="info-icon" />
-                                    </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -157,8 +154,46 @@ const Materials = () => {
                         <h3>Remove Material</h3>
                         <p>Are you sure you want to remove this material?</p>
                         <div className="popup-buttons">
-                            <button className="yes-btn" onClick={handleRemoveMaterial}>Yes</button>
-                            <button className="no-btn" onClick={() => setShowPopup(false)}>No</button>
+                            <button className="modalyesbtn" onClick={handleRemoveMaterial}>Yes</button>
+                            <button className="modalnobtn" onClick={() => setShowPopup(false)}>No</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {showAddPopup && (
+                <div className="popupaddoverlay">
+                    <div className="popupaddbox">
+                        <img src={logo} alt="Logo" className="logovertical" />
+
+                        <h3>Add Material</h3>
+                        <p>Enter the details of the new material and click 'Add' to save.</p>
+                        <input
+                            type="text"
+                            placeholder="Material ID"
+                            value={newMaterial.id}
+                            onChange={(e) => setNewMaterial({ ...newMaterial, id: e.target.value })}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Location"
+                            value={newMaterial.location}
+                            onChange={(e) => setNewMaterial({ ...newMaterial, location: e.target.value })}
+                        />
+                        <input
+                            type="text" placeholder="Name"
+                            value={newMaterial.name}
+                            onChange={(e) => setNewMaterial({ ...newMaterial, name: e.target.value })}
+                        />
+                        <input
+                            type="number"
+                            placeholder="Price"
+                            value={newMaterial.price}
+                            onChange={(e) => setNewMaterial({ ...newMaterial, price: e.target.value })}
+                        />
+                        <div className="popup-buttons">
+                            <button className="modalyesbtn" onClick={handleAddMaterial}>Add</button>
+                            <button className="modalnobtn" onClick={() => setShowAddPopup(false)}>Cancel</button>
                         </div>
                     </div>
                 </div>

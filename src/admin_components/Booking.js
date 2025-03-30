@@ -144,8 +144,8 @@ const Booking = () => {
                         <h3>Cancel Booking</h3>
                         <p>Are you sure you want to cancel this booking?</p>
                         <div className="popup-buttons">
-                            <button className="yes-btn" onClick={handleCancelBooking}>Yes</button>
-                            <button className="no-btn" onClick={() => setShowPopup(false)}>No</button>
+                            <button className="modalyesbtn" onClick={handleCancelBooking}>Yes</button>
+                            <button className="modalnobtn" onClick={() => setShowPopup(false)}>No</button>
                         </div>
                     </div>
                 </div>

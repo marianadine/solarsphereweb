@@ -21,6 +21,9 @@ const LoginPopUp = ({ isOpen, onClose, onSignupOpen }) => {
         const adminEmail = "1@1";
         const adminPassword = "1";
 
+        const userEmail = "1@2";
+        const userPassword = "1";
+
         if (email === adminEmail && password === adminPassword) {
             navigate('/dashboard');
             onClose(); 

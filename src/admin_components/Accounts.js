@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./admincompo_css/tablestyles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faPrint, faPen, faChevronDown, faPowerOff } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faPrint, faPen, faChevronDown, faPowerOff, faTimes } from "@fortawesome/free-solid-svg-icons";
+import logo from '../imgs/3MRlogovertical.png';
 
 const Accounts = () => {
   const [selected, setSelected] = useState("Admin");
@@ -20,8 +21,17 @@ const Accounts = () => {
     { id: "00012", email: "user10@email.com", password: "password10", status: "Inactive" },
   ]);
 
+  const [adminAccounts, setAdminAccounts] = useState([
+    { id: "00001", email: "junathanmikmik@email.com", password: "ilovedubu", position: "Admin" },
+    { id: "00002", email: "dubumarie@email.com", password: "ihatemikmik4ever", position: "Owner" },
+  ]);
+
   const [selectedAccount, setSelectedAccount] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
+  const [showAddPopup, setShowAddPopup] = useState(false);
+  const [showEditPopup, setShowEditPopup] = useState(false);
+  const [editAccount, setEditAccount] = useState({ id: "", email: "", password: "" });
+  const [newAccount, setNewAccount] = useState({ id: "", email: "", password: "", status: "Active" });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,11 +54,6 @@ const Accounts = () => {
     year: "numeric",
   });
 
-  const adminAccounts = [
-    { id: "00001", email: "junathanmikmik@email.com", password: "ilovedubu", position: "Admin" },
-    { id: "00002", email: "dubumarie@email.com", password: "ihatemikmik4ever", position: "Owner" },
-  ];
-
   const filteredUserAccounts = userAccounts.filter(
     (account) => filter === "All" || account.status === filter
   );
@@ -64,6 +69,39 @@ const Accounts = () => {
       );
       setShowPopup(false);
     }
+  };
+
+  const handleAddAccount = () => {
+    if (!newAccount.email || !newAccount.password) return;
+
+    const newId = selected === "Admin"
+      ? (adminAccounts.length + 1).toString().padStart(5, "0")
+      : (userAccounts.length + 3).toString().padStart(5, "0");
+
+    const accountToAdd = { ...newAccount, id: newId };
+
+    if (selected === "Admin") {
+      setAdminAccounts([...adminAccounts, accountToAdd]);
+    } else {
+      setUserAccounts([...userAccounts, accountToAdd]);
+    }
+
+    setNewAccount({ id: "", email: "", password: "", status: "Active" });
+    setShowAddPopup(false);
+  };
+
+  const handleEdit = (account) => {
+    setEditAccount(account);
+    setShowEditPopup(true);
+  };
+
+  const handleSaveEdit = () => {
+    if (selected === "Admin") {
+      setAdminAccounts((prev) => prev.map((acc) => (acc.id === editAccount.id ? editAccount : acc)));
+    } else {
+      setUserAccounts((prev) => prev.map((acc) => (acc.id === editAccount.id ? editAccount : acc)));
+    }
+    setShowEditPopup(false);
   };
 
   return (
@@ -110,7 +148,7 @@ const Accounts = () => {
               </div>
             )}
 
-            <button className="add-account-btn">
+            <button className="add-account-btn" onClick={() => setShowAddPopup(true)}>
               <FontAwesomeIcon icon={faPlus} style={{ marginRight: "8px" }} /> Add Account
             </button>
           </div>
@@ -139,7 +177,7 @@ const Accounts = () => {
                   <td>{account.password}</td>
                   <td>{selected === "Admin" ? account.position : account.status}</td>
                   <td>
-                    <FontAwesomeIcon icon={faPen} className="edit-icon" />
+                    <FontAwesomeIcon icon={faPen} className="edit-icon" onClick={() => handleEdit(account)} />
                   </td>
                 </tr>
               ))}
@@ -171,8 +209,53 @@ const Accounts = () => {
             <h3>Deactivate Account</h3>
             <p>Are you sure you want to deactivate this account?</p>
             <div className="popup-buttons">
-              <button className="yes-btn" onClick={handleDeactivate}>Yes</button>
-              <button className="no-btn" onClick={() => setShowPopup(false)}>No</button>
+              <button className="modalyesbtn" onClick={handleDeactivate}>Yes</button>
+              <button className="modalnobtn" onClick={() => setShowPopup(false)}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showAddPopup && (
+        <div className="popupaddoverlay">
+          <div className="popupaddbox">
+            <img src={logo} alt="Logo" className="logovertical" />
+
+            <h3>Add Account</h3>
+            <p>Please enter the account details to add a new user. Fill in the required fields and click 'Add' to save the account.</p>
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={newAccount.email}
+              onChange={(e) => setNewAccount({ ...newAccount, email: e.target.value })}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={newAccount.password}
+              onChange={(e) => setNewAccount({ ...newAccount, password: e.target.value })}
+            />
+            <div className="popup-buttons">
+              <button className="modalyesbtn" onClick={handleAddAccount}>Add</button>
+              <button className="modalnobtn" onClick={() => setShowAddPopup(false)}>Close</button>
+            </div>
+
+          </div>
+        </div>
+      )}
+
+      {showEditPopup && (
+        <div className="popupaddoverlay">
+          <div className="popupaddbox">
+          <img src={logo} alt="Logo" className="logovertical" />
+
+            <h3>Edit Account</h3>
+            <p>Update the account details as needed. Modify the fields and click 'Save' to apply the changes.</p>
+            <input placeholder="Email" type="email" value={editAccount.email} onChange={(e) => setEditAccount({ ...editAccount, email: e.target.value })} />
+            <input placeholder="Password" value={editAccount.password} onChange={(e) => setEditAccount({ ...editAccount, password: e.target.value })} />
+            <div className="popup-buttons">
+              <button className="modalyesbtn" onClick={handleSaveEdit}>Save</button>
+              <button className="modalnobtn" onClick={() => setShowEditPopup(false)}>Cancel</button>
             </div>
           </div>
         </div>

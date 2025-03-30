@@ -75,7 +75,7 @@ const Dashboard = () => {
         <div className="upcoming-schedules">
           <div className="section-header">
             <h4>Upcoming Schedules</h4>
-            <button className="view-all-btn">View All</button>
+            <button className="view-all-btn" onClick={() => navigate('/booking')}>View All</button>
           </div>
           <div className="schedule-grid">
             {schedules.map((schedule, index) => (

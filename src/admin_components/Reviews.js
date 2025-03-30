@@ -80,6 +80,8 @@ const fixedReviews = [
 const Reviews = () => {
     const [selectedReview, setSelectedReview] = useState(fixedReviews[0]);
     const [filterStars, setFilterStars] = useState("All");
+    const [showConfirmation, setShowConfirmation] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
 
     const sortedReviews = [...fixedReviews].sort((a, b) => new Date(b.date) - new Date(a.date));
 
@@ -89,7 +91,16 @@ const Reviews = () => {
             : filterStars === "Latest"
                 ? sortedReviews
                 : sortedReviews.filter((review) => review.stars === parseInt(filterStars));
+    
+    const handleConfirmShowOnWebsite = () => {
+        setShowConfirmation(true);
+    };
 
+    const handleAddToWebsite = () => {
+        setShowConfirmation(false);
+        setShowSuccess(true);
+        setTimeout(() => setShowSuccess(false), 3000);
+    };
 
     return (
         <div className="reviews-container">
@@ -153,12 +164,42 @@ const Reviews = () => {
                 <p className="reviewdate">{selectedReview.date}</p>
 
                 <div className="showonwebsite">
-                    <button className="addonwebsite">
-                        <FontAwesomeIcon icon={faPlus} className="plus-icon" /> Show On Website
+                    <button className="addonwebsite" onClick={handleConfirmShowOnWebsite}>
+                        <FontAwesomeIcon icon={faPlus} className="plus-icon"/> Show On Website
                     </button>
                     <p>Easily manage customer reviews by reviewing, filtering, and selecting which testimonials to display on the website.</p>
                 </div>
             </section>
+
+            {/* Confirmation Modal */}
+            {showConfirmation && (
+                <div className="modaloverlay">
+                    <div className="confirmationmodalbox">
+                        <h2>Are you sure?</h2>
+                        <p>Do you want to add this review to your website?</p>
+                        <div className="modal-buttons">
+                            <button className="modalyesbtn" onClick={handleAddToWebsite}>Yes</button>
+                            <button className="modalnobtn" onClick={() => setShowConfirmation(false)}>No</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Success Modal */}
+            {showSuccess && (
+                <div className="modaloverlay">
+                    <div className="modalbox">
+                        <div className="modalheader">
+                            <div className="checkmark">&#10004;</div>
+                        </div>
+                        <div className="modalcontent">
+                            <h2>Success!</h2>
+                            <p>The review has been added to the website.</p>
+                            <button className="modalclose" onClick={() => setShowSuccess(false)}>Close</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

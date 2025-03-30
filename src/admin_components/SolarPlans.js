@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./admincompo_css/tablestyles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPrint, faChevronDown, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { faPrint, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const SolarPlans = () => {
     const [currentTime, setCurrentTime] = useState(new Date());
@@ -41,7 +41,6 @@ const SolarPlans = () => {
         { id: "00010", location: "Calamba, Laguna", roofType: "Metal", bill: "PHP 6,500", netMetering: "Yes" },
     ];
 
-    // Filter solar plans based on selected region
     const filteredPlans = solarPlans.filter(plan =>
         filter === "All" || plan.location.includes(filter)
     );
@@ -90,7 +89,6 @@ const SolarPlans = () => {
                                 <th>Roof Type</th>
                                 <th>Electricity Bill</th>
                                 <th>Net Metering</th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -101,9 +99,6 @@ const SolarPlans = () => {
                                     <td>{plan.roofType}</td>
                                     <td>{plan.bill}</td>
                                     <td>{plan.netMetering}</td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faQuestionCircle} className="info-icon" />
-                                    </td>
                                 </tr>
                             ))}
                         </tbody>

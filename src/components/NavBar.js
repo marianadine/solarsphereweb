@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './components_css/NavBar.css';
 import logohome from '../imgs/3MRlogohorizontal.png';
 import LoginPopUp from './LoginPopUp';
@@ -8,6 +8,7 @@ import SignupPopUp from './SignupPopUp';
 const NavBar = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <nav className="navbar">
@@ -16,10 +17,18 @@ const NavBar = () => {
       </div>
       <div className="navbar-right">
         <ul className="navbar-links">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/services">Services</Link></li>
-          <li><Link to="/learn">Learn</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+          <li>
+            <Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link>
+          </li>
+          <li>
+            <Link to="/services" className={location.pathname === "/services" ? "active" : ""}>Services</Link>
+          </li>
+          <li>
+            <Link to="/learn" className={location.pathname === "/learn" ? "active" : ""}>Learn</Link>
+          </li>
+          <li>
+            <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>Contact</Link>
+          </li>
         </ul>
         <div className="navbar-auth">
           <button className="auth-button login" onClick={() => setIsLoginOpen(true)}>Login</button>
@@ -32,7 +41,6 @@ const NavBar = () => {
 
       <LoginPopUp isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} onSignupOpen={() => setIsSignupOpen(true)} />
       <SignupPopUp isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)} onLoginOpen={() => setIsLoginOpen(true)} />
-
     </nav>
   );
 };

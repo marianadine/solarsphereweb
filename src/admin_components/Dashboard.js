@@ -133,14 +133,39 @@ const Dashboard = () => {
                   labels: ["Potential Clients"],
                   datasets: [
                     {
-                      data: [24, 100 - 24], // 24% filled
+                      data: [45, 100 - 45], // 45% filled
                       backgroundColor: ["#373025", "#E5E5E5"],
-                      cutout: "60%",
+                      cutout: "0%", 
                     },
                   ],
                 }}
-                options={{ plugins: { legend: { display: false } } }}
+                options={{
+                  plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false }, 
+                    datalabels: {
+                      display: true,
+                      color: "#FFF",
+                      font: { weight: "bold", size: 28 },
+                      textAlign: "center",
+                      shadowBlur: 10,
+                      shadowColor: "rgba(0, 0, 0, 0.7)", 
+                      formatter: (value, context) => {
+                        if (context.dataIndex === 0) {
+                          return `${value}%`;
+                        }
+                        return "";
+                      },
+                      anchor: "center",
+                      align: "center",
+                      offset: 0,
+                    },
+                  },
+                  responsive: true,
+                  maintainAspectRatio: false,
+                }}
               />
+
               <p className="stat-label">Potential <br /> Client Count</p>
             </div>
 
@@ -151,13 +176,32 @@ const Dashboard = () => {
                   labels: ["Availed"],
                   datasets: [
                     {
-                      data: [60, 100 - 60], // 10% filled
+                      data: [60, 100 - 60],
                       backgroundColor: ["#39a851", "#E5E5E5"],
-                      cutout: "60%",
+                      cutout: "0%",
                     },
                   ],
                 }}
-                options={{ plugins: { legend: { display: false } } }}
+                options={{
+                  plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false },
+                    datalabels: {
+                      display: true,
+                      color: "#FFF",
+                      font: { weight: "bold", size: 28 },
+                      textAlign: "center",
+                      shadowBlur: 10,
+                      shadowColor: "rgba(0, 0, 0, 0.7)",
+                      formatter: (value, context) => (context.dataIndex === 0 ? `${value}%` : ""),
+                      anchor: "center",
+                      align: "center",
+                      offset: 0,
+                    },
+                  },
+                  responsive: true,
+                  maintainAspectRatio: false,
+                }}
               />
               <p className="stat-label">Availed <br /> Solar Panels</p>
             </div>
@@ -169,13 +213,32 @@ const Dashboard = () => {
                   labels: ["Not Interested"],
                   datasets: [
                     {
-                      data: [14, 100 - 14], // 14% filled
+                      data: [14, 100 - 14],
                       backgroundColor: ["#d9534f", "#E5E5E5"],
-                      cutout: "60%",
+                      cutout: "0%",
                     },
                   ],
                 }}
-                options={{ plugins: { legend: { display: false } } }}
+                options={{
+                  plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false },
+                    datalabels: {
+                      display: true,
+                      color: "#FFF",
+                      font: { weight: "bold", size: 28 },
+                      textAlign: "center",
+                      shadowBlur: 10,
+                      shadowColor: "rgba(0, 0, 0, 0.7)",
+                      formatter: (value, context) => (context.dataIndex === 0 ? `${value}%` : ""),
+                      anchor: "center",
+                      align: "center",
+                      offset: 0,
+                    },
+                  },
+                  responsive: true,
+                  maintainAspectRatio: false,
+                }}
               />
               <p className="stat-label">Not Yet <br /> Interested</p>
             </div>
@@ -195,7 +258,7 @@ const Dashboard = () => {
       {selectedSchedule && (
         <div className="modal-overlay">
           <div className="modal">
-          <img src={logo} alt="Logo" className="logovertical" />
+            <img src={logo} alt="Logo" className="logovertical" />
 
             <p>Purpose</p>
             <p className="purpose">{selectedSchedule.purpose}</p>

@@ -557,4 +557,11 @@
     border: 1px solid #b0b0b031;
 }
 
+.stat {
+    width: 150px; 
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
+  }
   

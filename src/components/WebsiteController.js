@@ -45,7 +45,7 @@ const MainLayout = () => {
         {/* Website Routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/learn" element={<LearnPage />} />
+        <Route path="/about" element={<LearnPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/heatmap" element={<HeatmapCalculator />} />
         <Route path="/planner" element={<SmartSolarPlanner />} />

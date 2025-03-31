@@ -21,11 +21,12 @@ const NavBar = () => {
             <Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link>
           </li>
           <li>
-            <Link to="/services" className={location.pathname === "/services" ? "active" : ""}>Services</Link>
+            <Link to="/about" className={location.pathname === "/about" ? "active" : ""}>About</Link>
           </li>
           <li>
-            <Link to="/learn" className={location.pathname === "/learn" ? "active" : ""}>Learn</Link>
+            <Link to="/services" className={location.pathname === "/services" ? "active" : ""}>Services</Link>
           </li>
+          
           <li>
             <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>Contact</Link>
           </li>

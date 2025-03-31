@@ -23,7 +23,7 @@ const Materials = () => {
     const [selectedMaterial, setSelectedMaterial] = useState(null);
     const [showPopup, setShowPopup] = useState(false);
     const [showAddPopup, setShowAddPopup] = useState(false);
-    const [newMaterial, setNewMaterial] = useState({ id: "", location: "", name: "", price: "" });
+    const [newMaterial, setNewMaterial] = useState({ location: "", name: "", price: "" });
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -60,11 +60,18 @@ const Materials = () => {
         }
     };
 
+    const generateMaterialId = () => {
+        if (materials.length === 0) return "00001";
+        const maxId = Math.max(...materials.map(mat => parseInt(mat.id, 10)));
+        return (maxId + 1).toString().padStart(5, "0");
+    };
+
     const handleAddMaterial = () => {
-        if (newMaterial.id && newMaterial.location && newMaterial.name && newMaterial.price) {
-            setMaterials([...materials, { ...newMaterial, price: Number(newMaterial.price) }]);
+        if (newMaterial.location && newMaterial.name && newMaterial.price) {
+            const id = generateMaterialId();
+            setMaterials([...materials, { id, ...newMaterial, price: Number(newMaterial.price) }]);
             setShowAddPopup(false);
-            setNewMaterial({ id: "", location: "", name: "", price: "" });
+            setNewMaterial({ location: "", name: "", price: "" });
         }
     };
 
@@ -170,18 +177,13 @@ const Materials = () => {
                         <p>Enter the details of the new material and click 'Add' to save.</p>
                         <input
                             type="text"
-                            placeholder="Material ID"
-                            value={newMaterial.id}
-                            onChange={(e) => setNewMaterial({ ...newMaterial, id: e.target.value })}
-                        />
-                        <input
-                            type="text"
                             placeholder="Location"
                             value={newMaterial.location}
                             onChange={(e) => setNewMaterial({ ...newMaterial, location: e.target.value })}
                         />
                         <input
-                            type="text" placeholder="Name"
+                            type="text"
+                            placeholder="Name"
                             value={newMaterial.name}
                             onChange={(e) => setNewMaterial({ ...newMaterial, name: e.target.value })}
                         />

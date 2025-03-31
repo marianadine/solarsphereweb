@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import logohome from '../imgs/3MRlogohorizontal.png';
@@ -9,6 +9,7 @@ import './admincompo_css/adnavbarstyle.css';
 const AdminNavBar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation(); // Get current route
 
   const handleLogout = () => {
     navigate('/');
@@ -20,11 +21,11 @@ const AdminNavBar = () => {
         <img src={logohome} alt="3MR Logo" />
       </div>
       <ul className="admin-links">
-        <li><Link to="/dashboard">Dashboard</Link></li>
-        <li><Link to="/accounts">Accounts</Link></li>
-        <li><Link to="/booking">Booking</Link></li>
-        <li><Link to="/solarplans">Solar Plans</Link></li>
-        <li><Link to="/materials">Materials</Link></li>
+        <li><Link to="/dashboard" className={location.pathname === "/dashboard" ? "active" : ""}>Dashboard</Link></li>
+        <li><Link to="/accounts" className={location.pathname === "/accounts" ? "active" : ""}>Accounts</Link></li>
+        <li><Link to="/booking" className={location.pathname === "/booking" ? "active" : ""}>Booking</Link></li>
+        <li><Link to="/solarplans" className={location.pathname === "/solarplans" ? "active" : ""}>Solar Plans</Link></li>
+        <li><Link to="/materials" className={location.pathname === "/materials" ? "active" : ""}>Materials</Link></li>
       </ul>
       
       <div className="admin-profile" onClick={() => setDropdownOpen(!dropdownOpen)}>

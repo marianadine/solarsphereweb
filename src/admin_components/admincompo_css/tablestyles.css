@@ -78,7 +78,11 @@
 
 .tablesection {
     flex: 1;
-    padding: 20px 60px;
+    padding: 120px 60px 70px 60px;
+    margin-right: -35px;
+    background-color: #f7f6ee;
+    margin-top: -120px;
+    border-radius: 50px 0px 0px 50px;
 }
 
 .topsection-table {
@@ -430,6 +434,67 @@
     border-radius: 5px;
 }
 
+.popupaddbox select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.popupaddbox select:hover,
+.popupaddbox select:focus {
+    border-color: #d3ab3f;
+}
+
+.popupaddbox select:focus {
+    border-color: #d3ab3f;
+    box-shadow: 0 0 5px rgba(211, 171, 63, 0.5);
+}
+
+.dropdownserviceswrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 355px;
+}
+
+.filterservicesdropdown {
+    background: white;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px 40px 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.filterservicesdropdown:hover,
+.filterservicesdropdown:focus {
+    border-color: #d3ab3f;
+    box-shadow: 0 0 5px rgba(211, 171, 63, 0.5);
+}
+
+.dropdownservicesicon {
+    position: absolute;
+    right: 15px;
+    pointer-events: none;
+    color: #777;
+    font-size: 14px;
+}
+
 .addaccbtn {
     background: #d3ab3f;
     font-weight: 600;
@@ -453,5 +518,43 @@
     cursor: pointer;
 }
 
+.status {
+    font-weight: 500;
+    padding: 5px 10px;
+    display: inline-block;
+    width: 80px;
+    text-align: center;    
+    border-radius: 20px;
+}
+
+.status.active {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.status.inactive {
+    background-color: #b0b0b031;
+    color: #B0B0B0;
+    border: 1px solid #b0b0b031;
+}
+
+.status-incoming {
+    background-color: #d3ab3f52;
+    color: #d3ab3f;
+    border: 1px solid #d3ab3f;
+}
+
+.status-done {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.status-canceled {
+    background-color: #b0b0b031;
+    color: #B0B0B0;
+    border: 1px solid #b0b0b031;
+}
 
   

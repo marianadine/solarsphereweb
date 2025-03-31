@@ -2,16 +2,37 @@ import React, { useState, useEffect } from "react";
 import "./admincompo_css/tablestyles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPrint, faPen, faChevronDown, faTimes } from "@fortawesome/free-solid-svg-icons";
+import logo from '../imgs/3MRlogovertical.png';
 
 const Booking = () => {
     const [currentTime, setCurrentTime] = useState(new Date());
     const [filter, setFilter] = useState("All");
-    const [bookings, setBookings] = useState([
-        { id: "00001", email: "junathanmikmik@email.com", name: "Junathan Mikmik Rufo", contact: "0918242198", purpose: "Consult", datetime: "12 September 10:00 AM", status: "Incoming" },
-        { id: "00002", email: "dubumarie@email.com", name: "Dubu Marie Rufo", contact: "0918242198", purpose: "Maintenance", datetime: "12 September 11:00 AM", status: "Done" },
-        { id: "00003", email: "najaemin@email.com", name: "Na Jaemin", contact: "0918242198", purpose: "Engineering", datetime: "12 September 12:00 PM", status: "Canceled" },
-        { id: "00004", email: "zhongchenle@email.com", name: "Zhong Chenle", contact: "0918242198", purpose: "Engineering", datetime: "12 September 01:00 PM", status: "Incoming" },
-    ]);
+    const generateBookings = () => {
+        const today = new Date();
+        return [
+            { id: "00001", email: "junathanmikmik@email.com", name: "Junathan Mikmik Rufo", contact: "0918242198", purpose: "Consult", time: "10:00 AM" },
+            { id: "00002", email: "dubumarie@email.com", name: "Dubu Marie Rufo", contact: "0918242198", purpose: "Maintenance", time: "11:00 AM" },
+            { id: "00003", email: "najaemin@email.com", name: "Na Jaemin", contact: "0918242198", purpose: "Engineering Services", time: "12:00 PM" },
+            { id: "00004", email: "zhongchenle@email.com", name: "Zhong Chenle", contact: "0918242198", purpose: "On-Site Assessment", time: "01:00 PM" },
+            { id: "00005", email: "jisungpark@email.com", name: "Jisung Park", contact: "0923456789", purpose: "Consult", time: "09:00 AM" },
+            { id: "00006", email: "johnsmith@email.com", name: "John Smith", contact: "0934567890", purpose: "Installation", time: "10:30 AM" },
+            { id: "00007", email: "janedoe@email.com", name: "Jane Doe", contact: "0945678901", purpose: "Site Inspection", time: "02:00 PM" },
+        ].map((booking, index) => {
+            const bookingDate = new Date();
+            bookingDate.setDate(today.getDate() + index - 3); // Realistic past, present, future dates
+    
+            const timeDifference = (bookingDate - today) / (1000 * 60 * 60 * 24);
+            let status = timeDifference < 0 ? "Done" : timeDifference <= 3 ? "Incoming" : "Scheduled";
+    
+            return {
+                ...booking,
+                datetime: `${bookingDate.toISOString().split("T")[0]} at ${booking.time}`,
+                status,
+            };
+        });
+    };
+
+    const [bookings, setBookings] = useState(generateBookings);
 
     const [selectedBooking, setSelectedBooking] = useState(null);
     const [showPopup, setShowPopup] = useState(false);
@@ -37,8 +58,7 @@ const Booking = () => {
         year: "numeric",
     });
 
-    // Filter bookings based on the selected status
-    const filteredBookings = bookings.filter(booking => 
+    const filteredBookings = bookings.filter(booking =>
         filter === "All" || booking.status === filter
     );
 
@@ -52,6 +72,53 @@ const Booking = () => {
             setShowPopup(false);
         }
     };
+
+    const [showEditBookingPopup, setShowEditBookingPopup] = useState(false);
+    const [editBooking, setEditBooking] = useState({
+        id: "",
+        email: "",
+        name: "",
+        contact: "",
+        purpose: "",
+        datetime: "",
+    });
+
+    const handleEditBooking = (booking) => {
+        const [datePart, timePart] = booking.datetime.split(" at ");
+
+        setEditBooking({
+            ...booking,
+            datetime: datePart,
+            time: timePart || "",
+        });
+
+        setShowEditBookingPopup(true);
+    };
+
+
+    const handleSaveEditBooking = () => {
+        const today = new Date();
+        const editedDate = new Date(editBooking.datetime);
+    
+        const timeDifference = (editedDate - today) / (1000 * 60 * 60 * 24);
+    
+        let newStatus = timeDifference < 0 ? "Done" : timeDifference <= 3 ? "Incoming" : "Scheduled";
+    
+        setBookings((prev) =>
+            prev.map((b) =>
+                b.id === editBooking.id
+                    ? {
+                        ...editBooking,
+                        datetime: `${editBooking.datetime} at ${editBooking.time}`,
+                        status: newStatus,
+                    }
+                    : b
+            )
+        );
+    
+        setShowEditBookingPopup(false);
+    };
+    
 
     return (
         <div className="container">
@@ -113,9 +180,17 @@ const Booking = () => {
                                     <td>{booking.contact}</td>
                                     <td>{booking.purpose}</td>
                                     <td>{booking.datetime}</td>
-                                    <td>{booking.status}</td>
                                     <td>
-                                        <FontAwesomeIcon icon={faPen} className="edit-icon" />
+                                        <span className={`status status-${booking.status.toLowerCase()}`}>
+                                            {booking.status}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <FontAwesomeIcon
+                                            icon={faPen}
+                                            className="edit-icon"
+                                            onClick={() => handleEditBooking(booking)}
+                                        />
                                     </td>
                                 </tr>
                             ))}
@@ -146,6 +221,54 @@ const Booking = () => {
                         <div className="popup-buttons">
                             <button className="modalyesbtn" onClick={handleCancelBooking}>Yes</button>
                             <button className="modalnobtn" onClick={() => setShowPopup(false)}>No</button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {showEditBookingPopup && (
+                <div className="popupaddoverlay">
+                    <div className="popupaddbox">
+                        <img src={logo} alt="Logo" className="logovertical" />
+
+                        <h3>Edit Booking</h3>
+                        <p>Modify the booking details as needed. Click 'Save' to apply changes.</p>
+
+                        <div className="dropdownserviceswrapper">
+                            <select
+                                className="filterservicesdropdown"
+                                value={editBooking.purpose}
+                                onChange={(e) => setEditBooking({ ...editBooking, purpose: e.target.value })}
+                            >
+                                <option value="Consultation">Consultation</option>
+                                <option value="Maintenance">Maintenance</option>
+                                <option value="Engineering Services">Engineering Services</option>
+                                <option value="On-Site Assessment">On-Site Assessment</option>
+                            </select>
+                            <FontAwesomeIcon icon={faChevronDown} className="dropdownservicesicon" />
+                        </div>
+
+                        <input
+                            type="date"
+                            value={editBooking.datetime}
+                            onChange={(e) => setEditBooking({ ...editBooking, datetime: e.target.value })}
+                        />
+
+
+                        <div className="dropdownserviceswrapper">
+                            <select
+                                className="filterservicesdropdown"
+                                value={editBooking.time}
+                                onChange={(e) => setEditBooking({ ...editBooking, time: e.target.value })}>
+                                <option value="08:00 AM">8:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                            </select>
+                            <FontAwesomeIcon icon={faChevronDown} className="dropdownservicesicon" />
+                        </div>
+
+                        <div className="popup-buttons">
+                            <button className="modalyesbtn" onClick={handleSaveEditBooking}>Save</button>
+                            <button className="modalnobtn" onClick={() => setShowEditBookingPopup(false)}>Cancel</button>
                         </div>
                     </div>
                 </div>

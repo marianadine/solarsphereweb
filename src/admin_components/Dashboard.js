@@ -9,6 +9,9 @@ import { useNavigate } from "react-router-dom";
 import { Doughnut } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
 
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+Chart.register(ChartDataLabels);
+
 Chart.register(ArcElement);
 
 const Dashboard = () => {
@@ -47,7 +50,6 @@ const Dashboard = () => {
     { date: "22", day: "Friday", details: "No events scheduled." },
     { date: "23", day: "Saturday", highlight: "Consultation", fullName: "Jane Smith", email: "janesmith@example.com", contactNumber: "+0987654321", purpose: "Consultation", dateTime: "23 March 2025, 2:00 PM - 3:30 PM", details: "Location: 456 Renewable Rd" }
   ];
-
 
   return (
     <div>

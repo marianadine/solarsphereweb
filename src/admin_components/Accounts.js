@@ -33,6 +33,9 @@ const Accounts = () => {
   const [editAccount, setEditAccount] = useState({ id: "", email: "", password: "" });
   const [newAccount, setNewAccount] = useState({ id: "", email: "", password: "", status: "Active" });
 
+  const [lastUpdatedAdmin, setLastUpdatedAdmin] = useState("Monday February 3, 2025");
+  const [lastUpdatedUser, setLastUpdatedUser] = useState("Monday February 3, 2025");
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(new Date());
@@ -96,11 +99,21 @@ const Accounts = () => {
   };
 
   const handleSaveEdit = () => {
+    const currentDate = new Date().toLocaleDateString("en-GB", {
+      weekday: "long",
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    });
+
     if (selected === "Admin") {
       setAdminAccounts((prev) => prev.map((acc) => (acc.id === editAccount.id ? editAccount : acc)));
+      setLastUpdatedAdmin(currentDate);
     } else {
       setUserAccounts((prev) => prev.map((acc) => (acc.id === editAccount.id ? editAccount : acc)));
+      setLastUpdatedUser(currentDate);
     }
+
     setShowEditPopup(false);
   };
 
@@ -133,7 +146,7 @@ const Accounts = () => {
         <div className="topsection-table">
           <div className="last-updated-container">
             <strong>Last Updated:</strong>
-            <p>September 13, 2025</p>
+            <p>{selected === "Admin" ? lastUpdatedAdmin : lastUpdatedUser}</p>
           </div>
 
           <div className="topsection-actions">
@@ -175,7 +188,15 @@ const Accounts = () => {
                   <td>{account.id}</td>
                   <td>{account.email}</td>
                   <td>{account.password}</td>
-                  <td>{selected === "Admin" ? account.position : account.status}</td>
+                  <td>
+                    {selected === "Admin" ? (
+                      account.position
+                    ) : (
+                      <span className={`status ${account.status.toLowerCase()}`}>
+                        {account.status}
+                      </span>
+                    )}
+                  </td>
                   <td>
                     <FontAwesomeIcon icon={faPen} className="edit-icon" onClick={() => handleEdit(account)} />
                   </td>
@@ -247,7 +268,7 @@ const Accounts = () => {
       {showEditPopup && (
         <div className="popupaddoverlay">
           <div className="popupaddbox">
-          <img src={logo} alt="Logo" className="logovertical" />
+            <img src={logo} alt="Logo" className="logovertical" />
 
             <h3>Edit Account</h3>
             <p>Update the account details as needed. Modify the fields and click 'Save' to apply the changes.</p>

@@ -3,7 +3,7 @@ import "./components_css/footersectionstyle.css";
 import logo from '../imgs/3MRlogoicon.png';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons"; 
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
     return (
@@ -22,14 +22,14 @@ const Footer = () => {
                         (+63) 9328870793
                     </a>
                 </div>
-
                 <div className="footer-section">
                     <h4>SOCIALS</h4>
                     <p>
-                    <FontAwesomeIcon icon={faFacebook} className="footer-icon" /> : @3mrce
+                        <a href="https://www.facebook.com/3mrce" target="_blank" rel="noopener noreferrer" className="social-link">
+                            <FontAwesomeIcon icon={faFacebook} className="footer-icon" /> : @3mrce
+                        </a>
                     </p>
                 </div>
-
                 <div className="footer-section">
                     <h4>QUICK LINKS</h4>
                     <a href="/" className="footer-link">Home</a>

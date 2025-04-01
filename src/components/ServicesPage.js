@@ -31,7 +31,7 @@ const ServicesPage = () => {
                         We provide top-tier construction, engineering, and solar panel installation services,
                         delivering sustainable, energy-efficient solutions that improve quality of life.
                     </p>
-                    <button className="button">Generate a Solar Plan</button>
+                    <button className="button" onClick={() => navigate('/planner')}>Generate a Solar Plan</button>
                 </div>
                 <img src={home} alt="3D Home" className="services-image" />
             </div>
@@ -41,7 +41,7 @@ const ServicesPage = () => {
                     <div className="service-text">
                         <h2>Heatmap Calculator</h2>
                         <p>Offers a tailored estimated solar potential to help you understand energy savings and make informed solar decisions.</p>
-                        <div className="faqs-list2">
+                        <div className="faqs-list1">
                             {heatmapfaqs.map((faq, index) => (
                                 <div
                                     key={index}
@@ -63,7 +63,7 @@ const ServicesPage = () => {
 
                 <div className="service-box planner">
                     <div className="image-placeholder"></div>
-                    <div className="service-text" style={{ marginLeft: '180px' }}>
+                    <div className="service-text" style={{ marginLeft: '150px' }}>
                         <h2>Smart Solar Planner</h2>
                         <p>Choose the best solar solution based on your energy needs, roof size, ensuring optimal savings and efficiency.</p>
                         <div className="faqs-list2">

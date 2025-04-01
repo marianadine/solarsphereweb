@@ -12,6 +12,9 @@ import ScrollToTopButton from './ScrollToTopButton';
 import HeatmapCalculator from './HeatmapCalculator';
 import SmartSolarPlanner from './SmartSolarPlanner';
 import GeneratedPlan from './GeneratedPlan';
+import Article1 from './Article1';
+import Article2 from './Article2';
+import Article3 from './Article3';
 
 import AdminNavBar from '../admin_components/AdminNavBar';
 import Dashboard from '../admin_components/Dashboard';
@@ -50,6 +53,9 @@ const MainLayout = () => {
         <Route path="/heatmap" element={<HeatmapCalculator />} />
         <Route path="/planner" element={<SmartSolarPlanner />} />
         <Route path="/summary" element={<GeneratedPlan />} />
+        <Route path="/article1" element={<Article1 />} />
+        <Route path="/article2" element={<Article2 />} />
+        <Route path="/article3" element={<Article3 />} />
 
         {/* Admin Routes */}
         <Route path="/dashboard" element={<Dashboard />} />

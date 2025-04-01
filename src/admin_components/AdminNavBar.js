@@ -9,7 +9,7 @@ import './admincompo_css/adnavbarstyle.css';
 const AdminNavBar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation(); // Get current route
+  const location = useLocation();
 
   const handleLogout = () => {
     navigate('/');

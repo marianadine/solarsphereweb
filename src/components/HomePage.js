@@ -18,7 +18,7 @@ const slides = [article1, article2, article3];
 
 const HomePage = () => {
     const navigate = useNavigate();
-    
+
     const [location, setLocation] = useState("");
 
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -157,8 +157,12 @@ const HomePage = () => {
                             <p className="readarticles-card-title">Benefits of Solar Energy</p>
                             <p className="readarticles-card-text">Discover how modern solar panels maximize energy output.</p>
                         </div>
-                        <div className="readarticles-card-info">5 minute read</div>
-                        <div className="readarticles-arrow">↗</div>
+                        <div className="readarticles-card-info">7 minute read</div>
+                        <div
+                            className="readarticles-arrow"
+                            onClick={() => navigate('/article1')}
+                            style={{ cursor: 'pointer' }}
+                        >↗</div>
                     </div>
 
                     <div className="readarticles-card">
@@ -167,8 +171,12 @@ const HomePage = () => {
                             <p className="readarticles-card-title">Global Impact of Solar</p>
                             <p className="readarticles-card-text">Learn how we contribute to a greener environment.</p>
                         </div>
-                        <div className="readarticles-card-info">5 minute read</div>
-                        <div className="readarticles-arrow">↗</div>
+                        <div className="readarticles-card-info">6 minute read</div>
+                        <div
+                            className="readarticles-arrow"
+                            onClick={() => navigate('/article2')}
+                            style={{ cursor: 'pointer' }}
+                        >↗</div>
                     </div>
 
                     <div className="readarticles-card">
@@ -178,7 +186,11 @@ const HomePage = () => {
                             <p className="readarticles-card-text">Find out how you can reduce your electricity bills with solar.</p>
                         </div>
                         <div className="readarticles-card-info">5 minute read</div>
-                        <div className="readarticles-arrow">↗</div>
+                        <div
+                            className="readarticles-arrow"
+                            onClick={() => navigate('/article3')}
+                            style={{ cursor: 'pointer' }}
+                        >↗</div>
                     </div>
                 </div>
             </section>

@@ -1,5 +1,5 @@
 .article-container {
-    margin-top: 150px;
+    padding: 30px;
 }
 
 .article-content {
@@ -45,7 +45,8 @@
     gap: 10px;
     max-width: 1000px;
     margin: auto;
-    margin-bottom: 20px;
+    margin-top: 150px;
+    margin-bottom: -25px;
     opacity: 0;
     animation: fadeIn 1s forwards 1.2s;
 }

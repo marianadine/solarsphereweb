@@ -152,6 +152,95 @@ const LearnPage = () => {
                 </div>
             </section>
 
+            <section className="team">
+    <div className="team-content">
+        <button className="tag">Our Team</button>
+        <h1 className="team-title">Meet the Team</h1>
+        <p className="team-description">
+            We are currently a growing company, and by trusting us, you help us grow while we provide you with exceptional service.
+        </p>
+    </div>
+
+    <div className="ownersection">
+        <div className="owner-box">
+            <div className="owner-img">
+                <div className="placeholder-box owner-placeholder"></div>
+            </div>
+            <div className="owner-info">
+                <h3 className="owner-name">John Doe</h3>
+                <p className="owner-position">Founder & CEO</p>
+            </div>
+        </div>
+    </div>
+
+    <div className="employeesection">
+        <div className="employee-row">
+            <div className="employee-box">
+                <div className="employee-img">
+                    <div className="placeholder-box employee-placeholder"></div>
+                </div>
+                <div className="employee-info">
+                    <h3 className="employee-name">Jane Smith</h3>
+                    <p className="employee-position">Project Manager</p>
+                </div>
+            </div>
+
+            <div className="employee-box">
+                <div className="employee-img">
+                    <div className="placeholder-box employee-placeholder"></div>
+                </div>
+                <div className="employee-info">
+                    <h3 className="employee-name">Alex Johnson</h3>
+                    <p className="employee-position">Lead Engineer</p>
+                </div>
+            </div>
+
+            <div className="employee-box">
+                <div className="employee-img">
+                    <div className="placeholder-box employee-placeholder"></div>
+                </div>
+                <div className="employee-info">
+                    <h3 className="employee-name">Sarah Lee</h3>
+                    <p className="employee-position">Marketing Specialist</p>
+                </div>
+            </div>
+        </div>
+
+        <div className="employee-row">
+            <div className="employee-box">
+                <div className="employee-img">
+                    <div className="placeholder-box employee-placeholder"></div>
+                </div>
+                <div className="employee-info">
+                    <h3 className="employee-name">Michael Brown</h3>
+                    <p className="employee-position">Sales Executive</p>
+                </div>
+            </div>
+
+            <div className="employee-box">
+                <div className="employee-img">
+                    <div className="placeholder-box employee-placeholder"></div>
+                </div>
+                <div className="employee-info">
+                    <h3 className="employee-name">Emily Davis</h3>
+                    <p className="employee-position">Design Lead</p>
+                </div>
+            </div>
+
+            <div className="employee-box">
+                <div className="employee-img">
+                    <div className="placeholder-box employee-placeholder"></div>
+                </div>
+                <div className="employee-info">
+                    <h3 className="employee-name">David Wilson</h3>
+                    <p className="employee-position">Developer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
             <section className="rate">
                 <div className="rate-content">
                     <button className="rate-button" onClick={togglePopup}>Rate Us</button>
@@ -175,6 +264,7 @@ const LearnPage = () => {
                     ]))}
                 </div>
             </section>
+
 
             {showPopup && (
                 <div className="popup-review-overlay">

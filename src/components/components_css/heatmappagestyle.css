@@ -140,7 +140,7 @@
     border: none;
     background: #ccc;
     color: #373025;
-    cursor: not-allowed;
+    cursor: pointer;
     margin-top: 50px;
     transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
@@ -172,10 +172,6 @@
     background-color: grey;
     border-radius: 8px;
     transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-}
-
-.map-image:hover {
-    transform: scale(1.02);
 }
 
 .map-note {

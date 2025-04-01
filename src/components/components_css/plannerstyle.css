@@ -186,6 +186,10 @@
     transform: translateX(100%);
 }
 
+.toggle-button[data-selected="Not Now"]::before {
+    transform: translateX(100%);
+}
+
 .toggle-button button {
     flex: 1;
     padding: 10px;

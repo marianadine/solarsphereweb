@@ -164,6 +164,7 @@ h4 {
     align-items: center;
     justify-content: center;
     opacity: 0;
+    z-index: 10000;
     animation: fadeIn 0.3s forwards;
 }
 
@@ -224,15 +225,14 @@ h4 {
     color: #555;
 }
 
-.modal-buttons {
+.modalbuttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
     margin-top: 20px;
 }
 
-.modalyesbtn, .modalnobtn, .modalclose {
-    width: 100px;
+.modalyesbtn, .modalnobtn, .modalclose, .modalcontinue {
+    width: 120px;
     padding: 10px 20px;
     font-size: 14px;
     font-weight: 600;
@@ -241,14 +241,16 @@ h4 {
     transition: all 0.3s;
 }
 
-.modalyesbtn {
-    background: #D3AB3F;
+.modalyesbtn,
+.modalcontinue {
+    background: #D3AB3F !important;
     border: none;
-    color: white;
+    color: white !important;
 }
 
-.modalyesbtn:hover {
-    background: #c5a03a;
+.modalyesbtn:hover,
+.modalcontinue:hover {
+    background: #c5a03a !important;
 }
 
 .modalnobtn {
@@ -261,7 +263,7 @@ h4 {
     background: #ddd;
 }
 
-.modalclose {
+.modalclose, .modalcontinue {
     background: transparent;
     border: 1px solid #ccc;
     padding: 8px 20px;

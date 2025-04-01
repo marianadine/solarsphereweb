@@ -88,7 +88,6 @@ const SmartSolarPlanner = () => {
             <div className='imagecontainer'>
                 <p>Map Image Placeholder</p>
             </div>
-
         </section>
     );
 }

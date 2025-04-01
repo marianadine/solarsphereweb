@@ -179,6 +179,13 @@
     color: #555;
 }
 
+.solarpanelpic {
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .rightsection div:first-child {
     background: #fff;
     padding: 10px 30px;
@@ -236,4 +243,148 @@
 
 .rightsection {
     animation-delay: 0.3s;
+}
+
+.plannermodal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    z-index: 10000;
+    animation: fadeIn 0.3s forwards;
+}
+
+.plannermodalbox {
+    background: #fff;
+    width: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: popUp 0.3s ease-out;
+}
+
+.confirmationmodalbox h2{
+    font-weight: 600;
+    margin-bottom: -5px;
+}
+
+.modalheader {
+    background: #D3AB3F; 
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkmark {
+    font-size: 50px;
+    color: #fff;
+    font-weight: bold;
+    animation: scaleBounce 0.5s ease-in-out;
+}
+
+.plannermodalcontent {
+    padding: 25px;
+}
+
+.plannerdesc {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.modalquestion {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: -10px;
+    color: #373025;
+}
+
+.plannermodalcontent p {
+    font-size: 14px;
+    color: #373025;
+    margin-bottom: 20px;
+}
+
+.plannernote {
+    font-size: 12px !important;
+    color: #7c7c7c !important;
+    margin-bottom: 0px !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popUp {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scaleBounce {
+    0% { transform: scale(0.5); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.toggle-button-three {
+    display: flex;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    width: 100%;
+    margin-top: 5px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.toggle-button-three::before {
+    content: "";
+    position: absolute;
+    width: 33.33%;
+    height: 100%;
+    background: #e0e0e0;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 0;
+}
+
+.toggle-button-three[data-selected="Uncertain Future Plans"]::before {
+    transform: translateX(0%);
+}
+
+.toggle-button-three[data-selected="High Upfront Cost"]::before {
+    transform: translateX(99.99%);
+}
+
+.toggle-button-three[data-selected="Unexpected Cost"]::before {
+    transform: translateX(200%);
+}
+
+.toggle-button-three button {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1; 
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+.toggle-button-three button.active {
+    color: #373025;
+    font-weight: 600;
+}
+
+.toggle-button-three button:hover {
+    color: #555;
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import "./components_css/articlestyles.css";
 import profilePic from '../imgs/article1.png';
+import header from '../imgs/article3.png';
 
 const Article3 = () => {
   return (
@@ -20,7 +21,7 @@ const Article3 = () => {
         </h1>
         <p className="overview">Solar energy is poised to become one of the dominant sources of power in the coming decades. With technological advancements, decreasing costs, and increasing environmental awareness, solar energy is no longer just an alternative—it is a necessity. This article explores the future of solar energy on a global scale, its technological developments, real-world applications, and the challenges it faces.</p>
 
-        <img alt="Solar Energy Benefits" className="article-column-image" />
+        <img src={header} alt="Solar Energy Benefits" className="article-image" />
 
         <p>The world’s energy demand is growing at an unprecedented rate, and traditional fossil fuels are both environmentally unsustainable and finite. Solar energy, derived from the sun’s radiation, is one of the most promising renewable energy sources. Countries across the globe are investing heavily in solar infrastructure, aiming to transition towards cleaner, more sustainable energy solutions.</p>
 
@@ -50,7 +51,7 @@ const Article3 = () => {
         </p>
 
         <div className="article2column">
-          <img alt="Solar Energy Benefits" className="article-column-image" />
+          <img src={header} alt="Solar Energy Benefits" className="article-column-image1" />
           <p>
             Despite its potential, solar energy faces certain challenges:                  <ul>
               <li>Intermittency: Solar energy production depends on sunlight availability. However, improved battery storage and hybrid energy systems (solar combined with wind or hydro) help mitigate this issue.</li>

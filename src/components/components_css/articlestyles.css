@@ -1,9 +1,7 @@
-/* Article container */
 .article-container {
     margin-top: 150px;
 }
 
-/* Article content */
 .article-content {
     max-width: 1000px;
     margin: auto;
@@ -12,7 +10,6 @@
     animation: fadeIn 1s forwards;
 }
 
-/* Title */
 .articletitle {
     font-size: 30px;
     font-weight: 700;
@@ -23,7 +20,6 @@
     animation: fadeIn 1s forwards 0.3s;
 }
 
-/* Minuteread */
 .minuteread {
     text-align: center !important;
     font-size: 14px;
@@ -33,7 +29,6 @@
     animation: fadeIn 1s forwards 0.6s;
 }
 
-/* Overview */
 .overview {
     text-align: justify;
     font-size: 18px;
@@ -44,7 +39,6 @@
     animation: fadeIn 1s forwards 0.9s;
 }
 
-/* Author section */
 .author {
     display: flex;
     align-items: center;
@@ -67,7 +61,6 @@
     font-weight: 600;
 }
 
-/* Author info */
 .authorinfo p {
     text-align: left;
     font-size: 14px;
@@ -75,11 +68,11 @@
     margin: 0;
 }
 
-/* Images */
-.article-content img {
+.article-image {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
     margin: 20px 0;
     opacity: 0;
     animation: fadeIn 1s forwards 1.5s;
@@ -90,7 +83,6 @@
     transform: scale(1.05);
 }
 
-/* Article subtitles */
 .articlesubtitles {
     font-size: 22px;
     font-weight: 600;
@@ -101,7 +93,6 @@
     animation: fadeIn 1s forwards 1.8s;
 }
 
-/* Paragraphs */
 .article-content p {
     font-size: 16px;
     line-height: 1.8;
@@ -112,10 +103,9 @@
     animation: fadeIn 1s forwards 2.1s;
 }
 
-/* Two-column layout */
 .article2column {
     display: flex;
-    gap: 20px;
+    gap: 50px;
     align-items: flex-start; 
     margin: 30px 0;
     opacity: 0;
@@ -126,18 +116,26 @@
     flex: 1;
 }
 
-.article2column img {
-    width: 50%;
-    height: auto;
-    border-radius: 8px;
+.article-column-image {
+    width: 45%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
     transition: transform 0.3s ease;
 }
 
-.article2column img:hover {
+.article-column-image1 {
+    width: 45%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.article-column-image:hover {
     transform: scale(1.05);
 }
 
-/* Media query for responsiveness */
 @media (max-width: 768px) {
     .article2column {
         flex-direction: column;
@@ -149,7 +147,6 @@
     }
 }
 
-/* Keyframe animation for fadeIn effect */
 @keyframes fadeIn {
     0% {
         opacity: 0;

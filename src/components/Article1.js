@@ -1,6 +1,7 @@
 import React from 'react';
 import "./components_css/articlestyles.css";
 import profilePic from '../imgs/article1.png';
+import header from '../imgs/article1.png';
 
 const Article1 = () => {
   return (
@@ -22,7 +23,7 @@ const Article1 = () => {
           Solar energy is one of the most promising renewable energy sources available today. With its ability to reduce electricity costs, lower carbon emissions, and promote energy independence, solar power has become a crucial component of the global transition to sustainable energy. This article explores the economic, environmental, and technological benefits of solar energy, highlighting its role in shaping a cleaner and more sustainable future.
         </p>
 
-        <img alt="Solar Panels" className="article-image" />
+        <img src = {header} alt="Solar Panels" className="article-image" />
 
         <p>
           Solar energy has gained tremendous traction as the global community increasingly transitions towards renewable energy solutions. This shift is largely driven by solar energy's cost-effectiveness, sustainability, and minimal ecological impact. As one of the most viable alternatives to fossil fuels, solar energy leverages the sun's virtually limitless supply, marking a significant step towards energy independence.
@@ -52,7 +53,7 @@ const Article1 = () => {
         </div>
 
         <div className="article2column">
-          <img alt="Solar Energy Benefits" className="article-column-image" />
+          <img src={header} alt="Solar Energy Benefits" className="article-column-image1" />
           <p>
             Solar energy presents a sustainable, cost-effective, and environmentally friendly solution to global energy challenges. As installation costs continue to decline and solar technology advances, more households, businesses, and industries are transitioning to solar power. Governments worldwide are supporting the shift through policies, incentives, and infrastructure investments, making solar energy increasingly accessible.
             <br /><br />

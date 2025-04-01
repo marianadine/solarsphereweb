@@ -1,6 +1,7 @@
 import React from 'react'
 import "./components_css/articlestyles.css";
 import profilePic from '../imgs/article1.png';
+import header from '../imgs/article2.png';
 
 const Article2 = () => {
   return (
@@ -21,7 +22,7 @@ const Article2 = () => {
         <p className="overview">Solar energy is at the forefront of the renewable energy revolution, offering a sustainable alternative to traditional power sources. With its potential to reduce environmental harm, strengthen economies, and expand energy access, solar power is reshaping global energy strategies. This article explores its wide-ranging impact on climate, society, and geopolitics.</p>
 
         <div className="article2column">
-          <img alt="Solar Energy Benefits" className="article-column-image" />
+          <img src={header} alt="Solar Energy Benefits" className="article-column-image" />
           <p>
             As the world faces mounting environmental and economic challenges, the shift toward clean energy has become a necessity. Solar energy, with its limitless availability and technological advancements, has emerged as a key driver of this transition. Countries across the globe are embracing solar solutions, integrating them into national power grids and rural electrification projects.
             <br /><br />
@@ -37,7 +38,7 @@ const Article2 = () => {
             <li>Land Use Efficiency: Innovative solar installations, such as floating solar farms, minimize environmental disruption.</li>
           </ul>
         </p>
-        
+
         <h3 className='articlesubtitles'>Economic Impact</h3>
         <p>
           The solar sector has emerged as a significant contributor to global economic expansion, providing employment and driving technological innovations.          <ul>
@@ -71,7 +72,7 @@ const Article2 = () => {
             <br /><br />
             The continued expansion of solar technology will pave the way for a cleaner, more equitable world. Governments, industries, and individuals must embrace solar energy as a primary solution to today’s pressing energy and environmental challenges. A rapid transition to solar power is not just beneficial—it is essential for a resilient and prosperous future.</p>
 
-          <img alt="Solar Energy Benefits" className="article-column-image" />
+          <img src={header} alt="Solar Energy Benefits" className="article-column-image" />
 
         </div>
       </section>

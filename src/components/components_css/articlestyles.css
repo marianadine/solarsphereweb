@@ -1,0 +1,160 @@
+/* Article container */
+.article-container {
+    margin-top: 150px;
+}
+
+/* Article content */
+.article-content {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Title */
+.articletitle {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    color: #373025;
+    margin-bottom: 25px;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.3s;
+}
+
+/* Minuteread */
+.minuteread {
+    text-align: center !important;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.6s;
+}
+
+/* Overview */
+.overview {
+    text-align: justify;
+    font-size: 18px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.9s;
+}
+
+/* Author section */
+.author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards 1.2s;
+}
+
+.authorpic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.author-name {
+    font-weight: 600;
+}
+
+/* Author info */
+.authorinfo p {
+    text-align: left;
+    font-size: 14px;
+    color: #373025;
+    margin: 0;
+}
+
+/* Images */
+.article-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeIn 1s forwards 1.5s;
+    transition: transform 0.3s ease;
+}
+
+.article-content img:hover {
+    transform: scale(1.05);
+}
+
+/* Article subtitles */
+.articlesubtitles {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #222;
+    opacity: 0;
+    animation: fadeIn 1s forwards 1.8s;
+}
+
+/* Paragraphs */
+.article-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+    text-align: justify;
+    margin-bottom: 15px;
+    opacity: 0;
+    animation: fadeIn 1s forwards 2.1s;
+}
+
+/* Two-column layout */
+.article2column {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start; 
+    margin: 30px 0;
+    opacity: 0;
+    animation: fadeIn 1s forwards 2.4s;
+}
+
+.article2column p {
+    flex: 1;
+}
+
+.article2column img {
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.article2column img:hover {
+    transform: scale(1.05);
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .article2column {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .article2column img {
+        width: 100%;
+    }
+}
+
+/* Keyframe animation for fadeIn effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

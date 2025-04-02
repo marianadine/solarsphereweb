@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { useNavigate } from "react-router-dom";
 import "./components_css/generatedplanstyle.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import solarpanel from '../imgs/solarpanel.png';
 
 const GeneratedPlan = () => {
-    const navigate = useNavigate();  // Initialize the navigate hook
+    const navigate = useNavigate();
     const [showModal, setShowModal] = useState(false);
     const [showNoModal, setShowNoModal] = useState(false);
     const [showYesModal, setShowYesModal] = useState(false); 
-    const [selected, setSelected] = useState("Yes"); // Default selection for first modal
+    const [selected, setSelected] = useState("Yes");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setShowModal(true);  // Show the first modal when Done is clicked
+        setShowModal(true);
     };
 
     const handleYesClick = () => {
@@ -35,20 +35,21 @@ const GeneratedPlan = () => {
 
     const handleContinue = () => {
         if (selected === "Yes") {
-            setShowModal(false);  // Close the first modal
-            setShowYesModal(true);  // Show the Yes modal
+            setShowModal(false);
+            setShowYesModal(true);
         } else if (selected === "No") {
-            setShowModal(false);  // Close the first modal
-            setShowNoModal(true);  // Show the No modal
+            setShowModal(false);
+            setShowNoModal(true); 
         }
     };
 
     const handleNotNowClick = () => {
         if (selected === "Yes") {
-            setShowYesModal(false);  // Close the Yes modal
-        navigate("/");  // Navigate to home page
+            setShowYesModal(false); 
+            navigate("/");
         } else if (selected === "Not Now") {
-            setShowYesModal(false);  // Close the modal if "Not Now" is clicked
+            setShowYesModal(false);
+            navigate("/");
         }
     };
 

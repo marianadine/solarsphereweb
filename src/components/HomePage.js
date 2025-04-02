@@ -47,7 +47,6 @@ const HomePage = () => {
 
     return (
         <div>
-            <NavBar />
             <section className="home">
                 <div className="home-container">
                     <div className="home-content">

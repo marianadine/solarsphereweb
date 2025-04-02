@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import './components_css/loginstyle.css';
 
-const LoginPopUp = ({ isOpen, onClose, onSignupOpen }) => {
+const LoginPopUp = ({ isOpen, onClose, onSignupOpen, onLoginSuccess }) => {
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -21,12 +21,18 @@ const LoginPopUp = ({ isOpen, onClose, onSignupOpen }) => {
         const adminEmail = "1@1";
         const adminPassword = "1";
 
+        // temporary user credentials
         const userEmail = "1@2";
         const userPassword = "1";
 
         if (email === adminEmail && password === adminPassword) {
-            navigate('/dashboard');
-            onClose(); 
+            onLoginSuccess("Admin");
+            navigate('/');
+            onClose();
+        } else if (email === userEmail && password === userPassword) {
+            onLoginSuccess("User");
+            navigate('/');
+            onClose();
         } else {
             setErrorMessage("Invalid email or password!");
         }
@@ -79,3 +85,4 @@ const LoginPopUp = ({ isOpen, onClose, onSignupOpen }) => {
 };
 
 export default LoginPopUp;
+

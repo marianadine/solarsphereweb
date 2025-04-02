@@ -89,7 +89,7 @@ const LearnPage = () => {
         <div>
             <section className="vision">
                 <div className="vision-content">
-                    <button className="tag">Our Vision</button>
+                    <p className="tag">Our Vision</p>
                     <h1 className="vision-title">Who We Are</h1>
                     <p className="vision-description">
                         We are a team of dedicated professionals passionate about delivering high-quality
@@ -154,7 +154,7 @@ const LearnPage = () => {
 
             <section className="team">
                 <div className="team-content">
-                    <button className="tag">Our Team</button>
+                    <p className="tag">Our Team</p>
                     <h1 className="team-title">Meet the Team</h1>
                     <p className="team-description">
                         We are currently a growing company, and by trusting us, you help us grow while we provide you with exceptional service.
@@ -165,10 +165,17 @@ const LearnPage = () => {
                     <div className="owner-box">
                         <div className="owner-img">
                             <div className="placeholder-box owner-placeholder"></div>
+                            <h3 className="owner-name">Bien Rufo</h3>
+                            <p className="owner-position">Owner</p>
                         </div>
-                        <div className="owner-info">
-                            <h3 className="owner-name">John Doe</h3>
-                            <p className="owner-position">Founder & CEO</p>
+                    </div>
+
+                    <div className="ownermsg">
+                        <p>As an expanding organization, your confidence propels our advancement and empowers us to provide outstanding and unparalleled service. Your trust fuels our dedication to innovation, quality, and sustainability, allowing us to build not just homes but brighter futures. Together, we create lasting value, one project at a time.</p>
+
+                        <div className="ownermsgfooter">
+                            <p className="tag">3MRCE</p>
+                            <p className="tag">May 2023</p>
                         </div>
                     </div>
                 </div>
@@ -180,7 +187,7 @@ const LearnPage = () => {
                                 <div className="placeholder-box employee-placeholder"></div>
                             </div>
                             <div className="employee-info">
-                                <h3 className="employee-name">Jane Smith</h3>
+                                <h3 className="employee-name">Employee Name</h3>
                                 <p className="employee-position">Project Manager</p>
                             </div>
                         </div>
@@ -190,7 +197,7 @@ const LearnPage = () => {
                                 <div className="placeholder-box employee-placeholder"></div>
                             </div>
                             <div className="employee-info">
-                                <h3 className="employee-name">Alex Johnson</h3>
+                                <h3 className="employee-name">Employee Name</h3>
                                 <p className="employee-position">Lead Engineer</p>
                             </div>
                         </div>
@@ -200,7 +207,7 @@ const LearnPage = () => {
                                 <div className="placeholder-box employee-placeholder"></div>
                             </div>
                             <div className="employee-info">
-                                <h3 className="employee-name">Sarah Lee</h3>
+                                <h3 className="employee-name">Employee Name</h3>
                                 <p className="employee-position">Marketing Specialist</p>
                             </div>
                         </div>
@@ -212,7 +219,7 @@ const LearnPage = () => {
                                 <div className="placeholder-box employee-placeholder"></div>
                             </div>
                             <div className="employee-info">
-                                <h3 className="employee-name">Michael Brown</h3>
+                                <h3 className="employee-name">Employee Name</h3>
                                 <p className="employee-position">Sales Executive</p>
                             </div>
                         </div>
@@ -222,7 +229,7 @@ const LearnPage = () => {
                                 <div className="placeholder-box employee-placeholder"></div>
                             </div>
                             <div className="employee-info">
-                                <h3 className="employee-name">Emily Davis</h3>
+                                <h3 className="employee-name">Employee Name</h3>
                                 <p className="employee-position">Design Lead</p>
                             </div>
                         </div>
@@ -232,7 +239,7 @@ const LearnPage = () => {
                                 <div className="placeholder-box employee-placeholder"></div>
                             </div>
                             <div className="employee-info">
-                                <h3 className="employee-name">David Wilson</h3>
+                                <h3 className="employee-name">Employee Name</h3>
                                 <p className="employee-position">Developer</p>
                             </div>
                         </div>

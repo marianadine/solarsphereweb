@@ -33,7 +33,7 @@ const ContactPage = () => {
                     <input
                         className='cinput'
                         type="text"
-                        placeholder="you@email.com"
+                        placeholder="you@gmail.com"
                         required
                     />
                 </form>
@@ -72,8 +72,11 @@ const ContactPage = () => {
                 </a>
 
                 <h4>SOCIALS</h4>
-                <p><FontAwesomeIcon icon={faFacebook} className="icon" /> : @3mrce</p>
-
+                <p>
+                    <a href="https://www.facebook.com/3mrce" target="_blank" rel="noopener noreferrer" className="social-link">
+                        <FontAwesomeIcon icon={faFacebook} className="footer-icon" /> : @3mrce
+                    </a>
+                </p>
                 <p className='tagname'>Sustainable living starts with solar power.</p>
 
             </div>

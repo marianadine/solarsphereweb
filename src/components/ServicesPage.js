@@ -35,7 +35,6 @@ const ServicesPage = () => {
                     </p>
                     <button className="button" onClick={() => navigate('/planner')}>Generate a Solar Plan</button>
                 </div>
-                <img src={home} alt="3D Home" className="services-image" />
             </div>
 
             <div className="services-grid">

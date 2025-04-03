@@ -1,17 +1,14 @@
 .services {
     background-color: #fff;
     padding: 50px 0;
-    margin: 100px;
     margin-top: 220px;
     animation: fadeInUp 1.2s ease-out forwards;
 }
 
 .services-header {
     position: relative; 
-    margin: 50px;
-    padding: 70px;
+    padding: 150px;
     background: linear-gradient(135deg, #373025, #948977);
-    border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -70,7 +67,7 @@
     display: flex;
     flex-direction: column;
     gap: 50px;
-    margin-top: 250px;
+    margin-top: 120px;
     margin-bottom: -150px;
 }
 
@@ -79,7 +76,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 200px;
     animation: fadeInUp 1s ease-in-out forwards;
 }
 

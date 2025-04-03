@@ -3,6 +3,7 @@ import "./components_css/articlestyles.css";
 import profilePic from '../imgs/article1.png';
 import header from '../imgs/article1.png';
 import p1 from '../imgs/p1.jpeg';
+import { Link } from 'react-router-dom';
 
 const Article1 = () => {
   return (
@@ -65,6 +66,11 @@ const Article1 = () => {
         <p>
           Whether for individual homes, corporate buildings, or entire cities, embracing solar energy is not just an investment in power, it is an investment in the planet’s future. The adoption of solar energy is more than just a trend; it is a necessary step toward a greener and more sustainable tomorrow.
         </p>
+
+        <div className="article-navigation">
+          <Link to="/article1" className="nav-button prev">Previous</Link>
+          <Link to="/article2" className="nav-button next">Next</Link>
+        </div>
       </section>
     </div>
   );

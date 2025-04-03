@@ -3,6 +3,7 @@ import "./components_css/articlestyles.css";
 import profilePic from '../imgs/article1.png';
 import header from '../imgs/article3.png';
 import p4 from '../imgs/p4.jpeg';
+import { Link } from 'react-router-dom';
 
 const Article3 = () => {
   return (
@@ -64,7 +65,10 @@ const Article3 = () => {
         </div>
 
         <p>The future of solar energy is bright. With continuous technological innovation, increasing investments, and supportive policies, solar energy will play a critical role in the global transition towards renewable power. While challenges remain, strategic solutions are paving the way for a sustainable, solar-powered future. Governments, businesses, and individuals must work together to accelerate this transition and harness the full potential of solar energy for a cleaner and more resilient world.</p>
-
+        <div className="article-navigation">
+          <Link to="/article2" className="nav-button prev">Previous</Link>
+          <Link to="/article1" className="nav-button next">Next</Link>
+        </div>
       </section>
     </div>
   )

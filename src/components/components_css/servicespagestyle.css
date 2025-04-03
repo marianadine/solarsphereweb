@@ -1,13 +1,13 @@
 .services {
     background-color: #fff;
     padding: 50px 0;
-    margin-top: 220px;
+    margin-top: 80px;
     animation: fadeInUp 1.2s ease-out forwards;
 }
 
 .services-header {
     position: relative; 
-    padding: 150px;
+    padding: 298px 150px;
     background: linear-gradient(135deg, #373025, #948977);
     display: flex;
     align-items: center;
@@ -147,10 +147,19 @@
     cursor: pointer;
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
+    width: 100%; 
 }
 
 .faq-item2:last-child {
     border-bottom: none;
+}
+
+.faq-question2, .faq-answer2 {
+    font-size: 16px;
+    color: #373025;
+    text-align: justify;
+    width: 100%; 
+    margin: 0;
 }
 
 .faq-question2 {
@@ -158,15 +167,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 620px !important;
 }
 
 .faq-answer2 {
-    font-size: 14px;
-    color: #373025;
     margin-top: 5px;
-    text-align: justify;
-    width: 620px !important;
     margin-bottom: 5px !important;
 }
 

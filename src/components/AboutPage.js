@@ -7,7 +7,7 @@ import sunIcon from "../imgs/3dsun.png";
 import { X, Leaf, Heart, Wrench } from "lucide-react";
 import "./components_css/learnpagestyle.css";
 
-const LearnPage = () => {
+const AboutPage = () => {
     const missionText = "Our mission is to provide affordable housing, eco-friendly energy solutions, and innovative engineering to make a lasting impact on the communities we serve.";
     const [typedText, setTypedText] = useState("");
 
@@ -342,4 +342,4 @@ const LearnPage = () => {
     );
 };
 
-export default LearnPage;
+export default AboutPage;

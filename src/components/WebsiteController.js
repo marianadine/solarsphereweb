@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 import HomePage from './HomePage';
-import LearnPage from './LearnPage';
+import AboutPage from './AboutPage';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import ServicesPage from './ServicesPage';
@@ -51,7 +51,7 @@ const MainLayout = () => {
         {/* Website Routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/about" element={<LearnPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/heatmap" element={<HeatmapCalculator />} />
         <Route path="/planner" element={<SmartSolarPlanner />} />

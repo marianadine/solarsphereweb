@@ -9,6 +9,10 @@ import p2 from '../imgs/p2.jpeg';
 import p3 from '../imgs/p3.jpeg';
 import p4 from '../imgs/p4.jpeg';
 import p5 from '../imgs/p5.jpeg';
+import p6 from '../imgs/p6.jpg';
+import p7 from '../imgs/p7.jpg';
+import p8 from '../imgs/p8.jpg';
+import p9 from '../imgs/p9.jpg';
 import article1 from '../imgs/article1.png';
 import article2 from '../imgs/article2.png';
 import article3 from '../imgs/article3.png';
@@ -18,7 +22,7 @@ import dlappline from '../imgs/dlappline.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faSun, faFire, faLeaf } from '@fortawesome/free-solid-svg-icons';
 
-const slides = [p1, p2, p3, p4, p5];
+const slides = [p1, p2, p3, p4, p5, p6, p7, p8, p9];
 
 const HomePage = () => {
     const navigate = useNavigate();

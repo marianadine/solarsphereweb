@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import home from '../imgs/3dhome.png';
 import './components_css/servicespagestyle.css';
+import p5 from '../imgs/maps.jpg';
+import p6 from '../imgs/homeimage.jpeg';
 
 const ServicesPage = () => {
     const navigate = useNavigate();
@@ -58,11 +60,11 @@ const ServicesPage = () => {
                         </div>
                         <button className="get-started-button" onClick={() => navigate('/heatmap')}>Get Started</button>
                     </div>
-                    <div className="image-placeholder"></div>
+                    <img src={p5} alt="Heatmap" className="service-image" />
                 </div>
 
                 <div className="service-box planner">
-                    <div className="image-placeholder"></div>
+                    <img src={p6} alt="Smart Solar Planner" className="service-image" />
                     <div className="service-text" style={{ marginLeft: '150px' }}>
                         <h2>Smart Solar Planner</h2>
                         <p>Choose the best solar solution based on your energy needs, roof size, ensuring optimal savings and efficiency.</p>
@@ -81,12 +83,12 @@ const ServicesPage = () => {
                                 </div>
                             ))}
                         </div>
-                        <button className="get-started-button" onClick={() => navigate('/planner')}
-                        >Get Started</button>
+                        <button className="get-started-button" onClick={() => navigate('/planner')}>Get Started</button>
                     </div>
                 </div>
             </div>
         </section>
+
     );
 };
 

@@ -3,7 +3,12 @@ import './components_css/homepagestyle.css';
 
 import { useNavigate } from "react-router-dom";
 
-import home from '../imgs/homeimage.png';
+import home from '../imgs/homeimage.jpeg';
+import p1 from '../imgs/p1.jpeg';
+import p2 from '../imgs/p2.jpeg';
+import p3 from '../imgs/p3.jpeg';
+import p4 from '../imgs/p4.jpeg';
+import p5 from '../imgs/p5.jpeg';
 import article1 from '../imgs/article1.png';
 import article2 from '../imgs/article2.png';
 import article3 from '../imgs/article3.png';
@@ -13,7 +18,7 @@ import dlappline from '../imgs/dlappline.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faSun, faFire, faLeaf } from '@fortawesome/free-solid-svg-icons';
 
-const slides = [article1, article2, article3];
+const slides = [p1, p2, p3, p4, p5];
 
 const HomePage = () => {
     const navigate = useNavigate();

@@ -2,6 +2,7 @@ import React from 'react'
 import "./components_css/articlestyles.css";
 import profilePic from '../imgs/article1.png';
 import header from '../imgs/article2.png';
+import p3 from '../imgs/p3.jpeg';
 
 const Article2 = () => {
   return (
@@ -72,7 +73,7 @@ const Article2 = () => {
             <br /><br />
             The continued expansion of solar technology will pave the way for a cleaner, more equitable world. Governments, industries, and individuals must embrace solar energy as a primary solution to today’s pressing energy and environmental challenges. A rapid transition to solar power is not just beneficial—it is essential for a resilient and prosperous future.</p>
 
-          <img src={header} alt="Solar Energy Benefits" className="article-column-image" />
+          <img src={p3} alt="Solar Energy Benefits" className="article-column-image" />
 
         </div>
       </section>

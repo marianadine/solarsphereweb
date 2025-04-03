@@ -2,6 +2,7 @@ import React from 'react';
 import "./components_css/articlestyles.css";
 import profilePic from '../imgs/article1.png';
 import header from '../imgs/article1.png';
+import p1 from '../imgs/p1.jpeg';
 
 const Article1 = () => {
   return (
@@ -53,7 +54,7 @@ const Article1 = () => {
         </div>
 
         <div className="article2column">
-          <img src={header} alt="Solar Energy Benefits" className="article-column-image1" />
+          <img src={p1} alt="Solar Energy Benefits" className="article-column-image1" />
           <p>
             Solar energy presents a sustainable, cost-effective, and environmentally friendly solution to global energy challenges. As installation costs continue to decline and solar technology advances, more households, businesses, and industries are transitioning to solar power. Governments worldwide are supporting the shift through policies, incentives, and infrastructure investments, making solar energy increasingly accessible.
             <br /><br />

@@ -123,6 +123,7 @@
     object-fit: cover;
     border-radius: 15px;
     transition: transform 0.3s ease;
+    filter: grayscale(100%);
 }
 
 .article-column-image1 {
@@ -131,6 +132,7 @@
     object-fit: cover;
     border-radius: 15px;
     transition: transform 0.3s ease;
+    filter: grayscale(100%);
 }
 
 .article-column-image:hover {

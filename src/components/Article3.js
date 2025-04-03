@@ -2,6 +2,7 @@ import React from 'react'
 import "./components_css/articlestyles.css";
 import profilePic from '../imgs/article1.png';
 import header from '../imgs/article3.png';
+import p4 from '../imgs/p4.jpeg';
 
 const Article3 = () => {
   return (
@@ -51,7 +52,7 @@ const Article3 = () => {
         </p>
 
         <div className="article2column">
-          <img src={header} alt="Solar Energy Benefits" className="article-column-image1" />
+          <img src={p4} alt="Solar Energy Benefits" className="article-column-image1" />
           <p>
             Despite its potential, solar energy faces certain challenges:                  <ul>
               <li>Intermittency: Solar energy production depends on sunlight availability. However, improved battery storage and hybrid energy systems (solar combined with wind or hydro) help mitigate this issue.</li>

@@ -26,11 +26,10 @@ const LoginPopUp = ({ isOpen, onClose, onSignupOpen, onLoginSuccess }) => {
         const userPassword = "1";
 
         if (email === adminEmail && password === adminPassword) {
-            onLoginSuccess("Admin");
-            navigate('/');
+            navigate('/dashboard');
             onClose();
         } else if (email === userEmail && password === userPassword) {
-            onLoginSuccess("User");
+            onLoginSuccess("Nadine Rufo");
             navigate('/');
             onClose();
         } else {

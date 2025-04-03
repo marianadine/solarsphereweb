@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 import HomePage from './HomePage';
@@ -12,6 +12,7 @@ import ScrollToTopButton from './ScrollToTopButton';
 import HeatmapCalculator from './HeatmapCalculator';
 import SmartSolarPlanner from './SmartSolarPlanner';
 import GeneratedPlan from './GeneratedPlan';
+import ProfilePage from './ProfilePage';
 import Article1 from './Article1';
 import Article2 from './Article2';
 import Article3 from './Article3';
@@ -35,15 +36,17 @@ const WebsiteController = () => {
 };
 
 const MainLayout = () => {
+  const [profilePic, setProfilePic] = useState(null);
+  const [userName, setUserName] = useState(null);
   const location = useLocation();
   const adminRoutes = ["/dashboard", "/accounts", "/review", "/booking", "/solarplans", "/materials"];
-  const noFooterRoutes = ["/contact", ...adminRoutes];
+  const noFooterRoutes = ["/contact", "/profile", ...adminRoutes];
   const isAdminPage = adminRoutes.includes(location.pathname);
   const hideFooter = noFooterRoutes.includes(location.pathname);
 
   return (
     <>
-      {isAdminPage ? <AdminNavBar /> : <NavBar />}
+      {isAdminPage ? <AdminNavBar /> : <NavBar profilePic={profilePic} userName={userName} setUserName={setUserName} />}
       <Routes>
         {/* Website Routes */}
         <Route path="/" element={<HomePage />} />
@@ -53,6 +56,7 @@ const MainLayout = () => {
         <Route path="/heatmap" element={<HeatmapCalculator />} />
         <Route path="/planner" element={<SmartSolarPlanner />} />
         <Route path="/summary" element={<GeneratedPlan />} />
+        <Route path="/profile" element={<ProfilePage setProfilePic={setProfilePic} />} />
         <Route path="/article1" element={<Article1 />} />
         <Route path="/article2" element={<Article2 />} />
         <Route path="/article3" element={<Article3 />} />
@@ -69,6 +73,5 @@ const MainLayout = () => {
     </>
   );
 };
-
 
 export default WebsiteController;

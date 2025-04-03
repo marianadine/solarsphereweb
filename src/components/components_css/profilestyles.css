@@ -1,0 +1,166 @@
+.profile {
+    display: flex;
+    height: 800px;
+    padding: 150px 50px;
+}
+
+.profilesidesection {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border-right: 2px solid #ddd;
+}
+
+.profilesidesection h2 {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.profilesidesection p {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.profilemainsection {
+    flex-grow: 1;
+    padding: 40px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.profile-image-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.edit-profile-pic {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background: #D3AB3F;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.companyname {
+    font-size: 16px;
+    font-weight: 300;
+    color: #777;
+    margin-bottom: -20px;
+}
+
+.profilename {
+    font-size: 35px;
+    font-weight: 600;
+    margin-bottom: -10px;
+}
+
+.profileemail {
+    font-size: 16px;
+    color: #666;
+}
+
+.profileform {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 70px;
+    row-gap: 15px;
+    margin-bottom: 20px;
+}
+
+.profile-initials {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #373025;
+    color: white;
+    font-size: 80px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+    margin-left: 18px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 18px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.save-button {
+    background: #D3AB3F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+.save-button:hover {
+    background: darkgoldenrod;
+}
+
+.logoutbtn {
+    padding: 12px 25px;
+    font-size: 18px;
+    text-align: left;
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    color: #D3AB3F;
+    transition: background 0.3s ease;
+}
+
+.logoutbtn:hover {
+    color: #d9534f;
+    background-color: transparent;
+}
+

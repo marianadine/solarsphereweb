@@ -26,6 +26,12 @@ const ServicesPage = () => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
+    const [activeService, setActiveService] = useState(null);
+
+    const toggleService = (service) => {
+        setActiveService(activeService === service ? null : service);
+    };
+
     return (
         <section className="services">
             <div className="services-header">
@@ -44,7 +50,37 @@ const ServicesPage = () => {
                     <img src={p8} alt="Pic 3" className="floating-img img3" />
                     <img src={p4} alt="Pic 4" className="floating-img img4" />
                 </div>
+            </div>
 
+            <div className='services-offered'>
+                {[
+                    {
+                        key: 'solar',
+                        title: 'Solar Panel Installation',
+                        description: 'We provide top-tier solar panel installation services, ensuring optimal energy efficiency and savings for your home.',
+                    },
+                    {
+                        key: 'engineering',
+                        title: 'Engineering Services',
+                        description: 'Our engineering services are designed to meet your specific needs, ensuring quality and efficiency in every project.',
+                    },
+                    {
+                        key: 'electrical',
+                        title: 'Electrical Services',
+                        description: 'We offer comprehensive electrical services, ensuring safe and efficient energy solutions for your home.',
+                    }
+                ].map((service) => (
+                    <div
+                        key={service.key}
+                        className={`service-box-tab ${activeService === service.key ? 'active' : 'inactive'}`}
+                        onClick={() => toggleService(service.key)}
+                    >
+                        <div className="service-title-tab">{service.title}</div>
+                        {activeService === service.key && (
+                            <p className="service-description-tab">{service.description}</p>
+                        )}
+                    </div>
+                ))}
             </div>
 
             <div className="services-grid">

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import home from '../imgs/3dhome.png';
 import './components_css/servicespagestyle.css';
-import p5 from '../imgs/maps.jpg';
-import p6 from '../imgs/homeimage.jpeg';
+import p1 from '../imgs/p1.jpeg';
+import p4 from '../imgs/p4.jpeg';
+import p5 from '../imgs/p5.jpeg';
+import p6 from '../imgs/p6.jpg';
+import p8 from '../imgs/p8.jpg';
+import p9 from '../imgs/p9.jpg';
 
 const ServicesPage = () => {
     const navigate = useNavigate();
@@ -35,6 +38,13 @@ const ServicesPage = () => {
                     </p>
                     <button className="button" onClick={() => navigate('/planner')}>Generate a Solar Plan</button>
                 </div>
+                <div className="floating-images">
+                    <img src={p1} alt="Pic 1" className="floating-img img1" />
+                    <img src={p9} alt="Pic 2" className="floating-img img2" />
+                    <img src={p8} alt="Pic 3" className="floating-img img3" />
+                    <img src={p4} alt="Pic 4" className="floating-img img4" />
+                </div>
+
             </div>
 
             <div className="services-grid">

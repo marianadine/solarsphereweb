@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import aboutpanels from "../imgs/aboutpanels.png";
-import pic from "../imgs/learngradient.png";
 import logo from '../imgs/3MRlogohorizontal.png';
 import sunIcon from "../imgs/3dsun.png";
 
@@ -40,6 +39,25 @@ const AboutPage = () => {
         ));
     };
 
+    const [reviewsData, setReviewsData] = useState([
+        { name: "John Doe", text: "Excellent service and great attention to detail!", date: new Date(), anonymous: false, rating: 5 },
+        { name: "Anonymous", text: "Highly recommend this team for solar panel installation.", date: new Date(), anonymous: true, rating: 4 },
+        { name: "Emily Smith", text: "Fast and reliable construction services. Very satisfied!", date: new Date(), anonymous: false, rating: 4 },
+        { name: "Michael Johnson", text: "Affordable pricing and professional team.", date: new Date(), anonymous: false, rating: 5 },
+        { name: "Anonymous", text: "Great customer support and after-sales service.", date: new Date(), anonymous: true, rating: 4 },
+        { name: "Sophia Martinez", text: "Highly efficient and eco-friendly solutions!", date: new Date(), anonymous: false, rating: 5 },
+    ]);
+
+    const renderStars = (rating) => {
+        return [...Array(5)].map((_, index) => (
+            <span key={index} className={`star ${index < rating ? "filled" : "empty"}`}>★</span>
+        ));
+    };
+
+    const formatDate = (date) => {
+        return new Intl.DateTimeFormat('en-US', { month: 'long', day: 'numeric', year: 'numeric' }).format(date);
+    };
+
     const reviewRef = useRef(null);
 
     useEffect(() => {
@@ -51,16 +69,12 @@ const AboutPage = () => {
 
         const scrollReviews = () => {
             reviews.scrollLeft += scrollSpeed;
-
-            if (reviews.scrollLeft >= reviews.scrollWidth - reviews.clientWidth) {
+            if (reviews.scrollLeft >= reviews.scrollWidth / 2) {
                 reviews.scrollLeft = 0;
             }
-
             requestId = requestAnimationFrame(scrollReviews);
         };
-
         requestId = requestAnimationFrame(scrollReviews);
-
         return () => cancelAnimationFrame(requestId);
     }, []);
 
@@ -71,9 +85,18 @@ const AboutPage = () => {
     const togglePopup = () => setShowPopup(!showPopup);
 
     const handleReviewSubmit = () => {
-        console.log("Review Submitted:", { review: reviewText, anonymous: isAnonymous });
+        const newReview = {
+            name: isAnonymous ? "Anonymous" : "User",
+            text: reviewText,
+            date: new Date(),
+            anonymous: isAnonymous,
+            rating: rating,
+        };
+
+        setReviewsData((prevReviews) => [...prevReviews, newReview]);
         setShowPopup(false);
         setReviewText("");
+        setRating(0);
         setIsAnonymous(false);
         setShowModal(true);
 
@@ -81,6 +104,7 @@ const AboutPage = () => {
             setShowModal(false);
         }, 3000);
     };
+
 
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
@@ -133,7 +157,7 @@ const AboutPage = () => {
                 </div>
 
                 <div className="mission">
-                <motion.div
+                    <motion.div
                         className="mission-content"
                         ref={missionRef}
                         initial={{ opacity: 0, y: 50 }}
@@ -250,7 +274,6 @@ const AboutPage = () => {
                 </div>
             </section>
 
-
             <section className="rate">
                 <div className="rate-content">
                     <button className="rate-button" onClick={togglePopup}>Rate Us</button>
@@ -261,20 +284,30 @@ const AboutPage = () => {
                         </p>
                     </div>
                 </div>
-                <div className="reviews" ref={reviewRef}>
-                    {[...Array(2)].flatMap(() => ([
-                        <div className="review-box">Review 1</div>,
-                        <div className="review-box">Review 2</div>,
-                        <div className="review-box">Review 3</div>,
-                        <div className="review-box">Review 4</div>,
-                        <div className="review-box">Review 5</div>,
-                        <div className="review-box">Review 6</div>,
-                        <div className="review-box">Review 7</div>,
-                        <div className="review-box">Review 8</div>
-                    ]))}
+                <div className="aboutreviews" ref={reviewRef}>
+                    {reviewsData.map((review, index) => (
+                        <div className="aboutreviewbox" key={index}>
+                            <div className="aboutreviewheader">
+                                <div className="profile-pic">
+                                    {review.anonymous ? (
+                                        <div className="anonymous-pic">A</div>
+                                    ) : (
+                                        <img src={`profile-image-${index}.jpg`} alt="User Profile" />
+                                    )}
+                                </div>
+                                <span className="review-name">{review.anonymous ? "Anonymous" : review.name}</span>
+                            </div>
+                            <div className="aboutreviewrating">
+                                {renderStars(review.rating)}
+                            </div>
+                            <p className="aboutreviewtext">{review.text}</p>
+                            <div className="aboutreviewfooter">
+                                <span className="aboutreviewdate">{formatDate(review.date)}</span>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </section>
-
 
             {showPopup && (
                 <div className="popup-review-overlay">

@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import aboutpanels from "../imgs/aboutpanels.png";
 import pic from "../imgs/learngradient.png";
 import logo from '../imgs/3MRlogohorizontal.png';
 import sunIcon from "../imgs/3dsun.png";
 
 import { X, Leaf, Heart, Wrench } from "lucide-react";
-import "./components_css/learnpagestyle.css";
+import "./components_css/aboutpagestyle.css";
 
 const AboutPage = () => {
     const missionText = "Our mission is to provide affordable housing, eco-friendly energy solutions, and innovative engineering to make a lasting impact on the communities we serve.";
@@ -98,7 +99,7 @@ const AboutPage = () => {
                 </div>
 
                 <div className="vision-image">
-                    <img src={pic} alt="Solar Panels" />
+                    <img src={aboutpanels} alt="Solar Panels" />
 
                     <div className="floating-box sustainability">
                         <div className="icon-wrapper">
@@ -129,8 +130,10 @@ const AboutPage = () => {
                             <p>Innovate construction through efficient engineering.</p>
                         </div>
                     </div>
+                </div>
 
-                    <motion.div
+                <div className="mission">
+                <motion.div
                         className="mission-content"
                         ref={missionRef}
                         initial={{ opacity: 0, y: 50 }}

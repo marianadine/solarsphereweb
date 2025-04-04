@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './components_css/servicespagestyle.css';
+import maps from '../imgs/maps.jpg';
 import p1 from '../imgs/p1.jpeg';
 import p4 from '../imgs/p4.jpeg';
 import p5 from '../imgs/p5.jpeg';
@@ -26,7 +27,7 @@ const ServicesPage = () => {
         setOpenIndex(openIndex === index ? null : index);
     };
 
-    const [activeService, setActiveService] = useState(null);
+    const [activeService, setActiveService] = useState('solar');
 
     const toggleService = (service) => {
         setActiveService(activeService === service ? null : service);
@@ -57,23 +58,27 @@ const ServicesPage = () => {
                     {
                         key: 'solar',
                         title: 'Solar Panel Installation',
-                        description: 'We provide top-tier solar panel installation services, ensuring optimal energy efficiency and savings for your home.',
+                        description: 'We provide top-tier solar panel installation services, ensuring optimal energy efficiency and savings for your home. Our team uses the latest technology and techniques to guarantee a hassle-free installation process. With our expert services, you can significantly reduce your energy bills and contribute to a more sustainable future.',
+                        image: p5,
                     },
                     {
                         key: 'engineering',
                         title: 'Engineering Services',
-                        description: 'Our engineering services are designed to meet your specific needs, ensuring quality and efficiency in every project.',
+                        description: 'Our engineering services are designed to meet your specific needs, ensuring quality and efficiency in every project. From structural engineering to civil engineering, we offer a full range of solutions. Our skilled engineers work closely with you to deliver customized and practical solutions for your construction and infrastructure needs.',
+                        image: p9,
                     },
                     {
                         key: 'electrical',
                         title: 'Electrical Services',
-                        description: 'We offer comprehensive electrical services, ensuring safe and efficient energy solutions for your home.',
-                    }
+                        description: 'We offer comprehensive electrical services, ensuring safe and efficient energy solutions for your home. Whether it\'s installing new wiring, repairing faulty circuits, or upgrading electrical panels, we provide reliable solutions to meet all your electrical needs. Our experts ensure your electrical systems are safe, energy-efficient, and up to code.',
+                        image: p8,
+                    },
                 ].map((service) => (
                     <div
                         key={service.key}
                         className={`service-box-tab ${activeService === service.key ? 'active' : 'inactive'}`}
                         onClick={() => toggleService(service.key)}
+                        style={{ backgroundImage: `url(${service.image})` }}
                     >
                         <div className="service-title-tab">{service.title}</div>
                         {activeService === service.key && (
@@ -82,7 +87,6 @@ const ServicesPage = () => {
                     </div>
                 ))}
             </div>
-
             <div className="services-grid">
                 <div className="service-box heatmap">
                     <div className="service-text">
@@ -105,7 +109,7 @@ const ServicesPage = () => {
                         </div>
                         <button className="get-started-button" onClick={() => navigate('/heatmap')}>Get Started</button>
                     </div>
-                    <img src={p5} alt="Heatmap" className="service-image" />
+                    <img src={maps} alt="Heatmap" className="service-image" />
                 </div>
 
                 <div className="service-box planner">
